@@ -51,9 +51,11 @@ use the table below as an example:
 
 ## Overview
 
-One or two sentences describing the project -- something memorable and accurate
-that distinguishes your project to quickly orient readers who may be assessing
-multiple projects.
+<!-- One or two sentences describing the project -- something memorable and accurate -->
+<!-- that distinguishes your project to quickly orient readers who may be assessing -->
+<!-- multiple projects. -->
+
+Highly available Prometheus setup with long term storage capabilities
 
 ### Background
 
