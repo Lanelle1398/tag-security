@@ -59,8 +59,33 @@ Highly available Prometheus setup with long term storage capabilities
 
 ### Background
 
-Provide information for reviewers who may not be familiar with your project's
-domain or problem area.
+<!-- Provide information for reviewers who may not be familiar with your project's -->
+<!-- domain or problem area. -->
+
+Thanos as a tool extends the capabilities of the Prometheus monitoring tool. 
+It does so by providing:
+
+* Global View: Thanos allows you to have a global view of your Prometheus metrics. 
+  It enables you to query metrics from multiple Prometheus instances across different clusters/systems.
+
+* Long-Term Storage: Thanos provides a solution for long-term storage of Prometheus metrics.
+  It can store historical data in object storage systems like Amazon S3, Google Cloud Storage,
+  or any other compatible storage backend.
+
+* High Availability: By distributing Prometheus data across multiple instances and using 
+  object storage for long-term storage, Thanos helps in achieving high availability and 
+  fault tolerance.
+
+* Query Federation: Thanos supports query federation, which means you can run queries across 
+  multiple Prometheus instances and retrieve the aggregated results.
+
+* Component Architecture: Thanos is composed of several components, including sidecar, querier,
+  and store components, each serving a specific purpose in the overall architecture.
+
+By using Thanos in conjunction with Prometheus, organizations can address the challenges of scaling Prometheus for larger deployments and retaining metrics data over longer periods. It's designed to provide a scalable and globally distributed solution for Prometheus monitoring.
+
+> It is not necessary to deploy Thanos on a Kuberenetes cluster. For narrowing and focusing the
+scope of this assessment, we will be assuming deployment on Kubernetes clusters.
 
 ### Actors
 These are the individual parts of your system that interact to provide the 
