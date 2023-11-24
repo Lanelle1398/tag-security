@@ -36,7 +36,7 @@ A table at the top for quick reference information, later used for indexing.
 | -- | -- |
 | Software | A link to the software’s repository.  |
 | Security Provider | No. |
-| Languages | languages the project is written in |
+| Languages | GOlang |
 | SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. |
 | | |
 
