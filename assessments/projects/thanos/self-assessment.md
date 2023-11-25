@@ -215,6 +215,8 @@ outline should discuss communication methods/strategies.
   confirmation, notification of vulnerability or security incident, and
 patching/update availability.
 
+If you encounter a security vulnerability, please let us know privately via the Thanos Team email address: thanos-io@googlegroups.com.
+
 ## Appendix
 
 * Known Issues Over Time. List or summarize statistics of past vulnerabilities
