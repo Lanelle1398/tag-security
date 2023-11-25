@@ -36,7 +36,7 @@ A table at the top for quick reference information, later used for indexing.
 | -- | -- |
 | Software | https://github.com/thanos-io/thanos  |
 | Security Provider | No. |
-| Languages | GOlang |
+| Languages | Golang |
 | SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. |
 | | |
 
@@ -46,7 +46,7 @@ Provide the list of links to existing security documentation for the project. Yo
 use the table below as an example:
 | Doc | url |
 | -- | -- |
-| Security file | https://my.security.file |
+| Security file | https://github.com/thanos-io/thanos/blob/main/SECURITY.md |
 | Default and optional configs | https://example.org/config |
 
 ## Overview
