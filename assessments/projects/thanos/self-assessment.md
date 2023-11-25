@@ -114,17 +114,17 @@ token to the file server, which, after confirming its validity, returns the file
  is meant to provide (e.g., Flibble only allows parties with an authorization
 key to change data it stores).-->
 
-*Global query view of metrics.
-*Unlimited retention of metrics.
-*High availability of components, including Prometheus.
-*Deduplication and merging of metrics collected from Prometheus HA pairs
-*Seamless integration with existing Prometheus setups
-*Any object storage as its only, optional dependency
-*Downsampling historical data for massive query speedup
-*Cross-cluster federation
-*Fault-tolerant query routing
-*Simple gRPC "Store API" for unified data access across all metric data
-*Easy integration points for custom metric providers
+* Global query view of metrics.
+* Unlimited retention of metrics.
+* High availability of components, including Prometheus.
+* Deduplication and merging of metrics collected from Prometheus HA pairs
+* Seamless integration with existing Prometheus setups
+* Any object storage as its only, optional dependency
+* Downsampling historical data for massive query speedup
+* Cross-cluster federation
+* Fault-tolerant query routing
+* Simple gRPC "Store API" for unified data access across all metric data
+* Easy integration points for custom metric providers
 
 
 ### Non-goals
