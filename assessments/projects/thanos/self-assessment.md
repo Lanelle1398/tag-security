@@ -191,6 +191,7 @@ virtualization for 80% of cloud users. So, our small number of "users" actually
 represents very wide usage across the ecosystem since every virtual instance uses
 Flibber encryption by default.)
 
+[added in](not sure if right though)
 
 * The Thanos project follows established CNCF and OSS best practices for code development and delivery. Thanos passes OpenSSF Best Practices.
 * Thanos follows secure development practices, including:
