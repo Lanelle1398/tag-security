@@ -88,14 +88,20 @@ By using Thanos in conjunction with Prometheus, organizations can address the ch
 scope of this assessment, we will be assuming deployment on Kubernetes clusters.
 
 ### Actors
-These are the individual parts of your system that interact to provide the 
+<!-- These are the individual parts of your system that interact to provide the 
 desired functionality.  Actors only need to be separate, if they are isolated
 in some way.  For example, if a service has a database and a front-end API, but
 if a vulnerability in either one would compromise the other, then the distinction
 between the database and front-end is not relevant.
 
 The means by which actors are isolated should also be described, as this is often
-what prevents an attacker from moving laterally after a compromise.
+what prevents an attacker from moving laterally after a compromise.-->
+* Queriers: Stateless and horizontally scalable instances responsible for executing PromQL queries.
+* Store Nodes: Act as gateways to block data stored in object storage.
+* Rule Nodes: Evaluate recording and alerting rules against data in Thanos.
+* Metric Sources: Components that produce or collect metric data, such as the Prometheus sidecar and rule nodes.
+* Users: Individuals or organizations utilizing Thanos for their metrics storage and querying needs
+
 
 ### Actions
 These are the steps that a project performs in order to provide some service
