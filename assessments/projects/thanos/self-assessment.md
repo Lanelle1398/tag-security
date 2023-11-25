@@ -114,17 +114,17 @@ token to the file server, which, after confirming its validity, returns the file
  is meant to provide (e.g., Flibble only allows parties with an authorization
 key to change data it stores).-->
 
-Global query view of metrics.
-Unlimited retention of metrics.
-High availability of components, including Prometheus.
-Deduplication and merging of metrics collected from Prometheus HA pairs
-Seamless integration with existing Prometheus setups
-Any object storage as its only, optional dependency
-Downsampling historical data for massive query speedup
-Cross-cluster federation
-Fault-tolerant query routing
-Simple gRPC "Store API" for unified data access across all metric data
-Easy integration points for custom metric providers
+*Global query view of metrics.
+*Unlimited retention of metrics.
+*High availability of components, including Prometheus.
+*Deduplication and merging of metrics collected from Prometheus HA pairs
+*Seamless integration with existing Prometheus setups
+*Any object storage as its only, optional dependency
+*Downsampling historical data for massive query speedup
+*Cross-cluster federation
+*Fault-tolerant query routing
+*Simple gRPC "Store API" for unified data access across all metric data
+*Easy integration points for custom metric providers
 
 
 ### Non-goals
@@ -135,19 +135,19 @@ an arbitrarily large amount of data, possibly incurring financial cost or overwh
 
 ## Self-assessment use
 
-This self-assessment is created by the [project] team to perform an internal analysis of the
-project's security.  It is not intended to provide a security audit of [project], or
-function as an independent assessment or attestation of [project]'s security health.
+This self-assessment is created by the Thanos team to perform an internal analysis of the
+project's security.  It is not intended to provide a security audit of Thanos, or
+function as an independent assessment or attestation of Thanos's security health.
 
-This document serves to provide [project] users with an initial understanding of
-[project]'s security, where to find existing security documentation, [project] plans for
-security, and general overview of [project] security practices, both for development of
-[project] as well as security of [project].
+This document serves to provide Thanos users with an initial understanding of
+Thanos's security, where to find existing security documentation, Thanos plans for
+security, and general overview of Thanos security practices, both for development of
+Thanos  as well as security of Thanos.
 
-This document provides the CNCF TAG-Security with an initial understanding of [project]
+This document provides the CNCF TAG-Security with an initial understanding of Thanos
 to assist in a joint-assessment, necessary for projects under incubation.  Taken
 together, this document and the joint-assessment serve as a cornerstone for if and when
-[project] seeks graduation and is preparing for a security audit.
+Thanos seeks graduation and is preparing for a security audit.
 
 ## Security functions and features
 
