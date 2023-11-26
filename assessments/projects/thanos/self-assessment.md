@@ -272,7 +272,7 @@ patching/update availability.-->
 Responsible Disclosures Process
 SOURCE : [https://github.com/thanos-io/thanos/security]
 
-          Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling​​. 
+> Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling​​. 
   Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com​​.
   Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive​​.
 Vulnerability Response Process
