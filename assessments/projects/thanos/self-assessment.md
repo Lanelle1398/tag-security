@@ -138,10 +138,10 @@ key to change data it stores).-->
 
 
 ### Non-goals
-Non-goals that a reasonable reader of the project’s literature could believe may
+<!--*Non-goals that a reasonable reader of the project’s literature could believe may
 be in scope (e.g., Flibble does not intend to stop a party with a key from storing
 an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
- the servers)
+ the servers) -->
  
 Although securing metrics is important for the sake of data privacy & integrity, security is not the reason for existence for the Thanos project.The project primarily aims to enable users to analyze historical data retrospectively, especially data that may not have been stored by Prometheus initially. This can be useful for purposes such as diagnosing security breaches or utilizing metric-like data over time. 
 Additionally, Thanos aims to be a lightweight, highly available program to store metrics and crunch numbers, so it would be misinformed to assume data security is the priority in all components of their project. (i.e. lack of encryption of locally stored data).
