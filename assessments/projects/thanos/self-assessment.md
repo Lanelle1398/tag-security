@@ -198,12 +198,12 @@ These features and practices demonstrate Thanos's commitment to security within 
 
 <!--* Compliance.  List any security standards or sub-sections the project is
   already documented as meeting (PCI-DSS, COBIT, ISO, GDPR, etc.). -->
-*  Thanos has achieved a silver Open Source Security Foundation (OpenSSF) best practices badge. Thanos has met all the security criteria outlined on OpenSSF.
+*  Thanos does not currently document meeting particular compliance standards.
 
 
 
 ## Secure development practices
-
+* Thanos has achieved the passing level criteria in Open Source Security Foundation (OpenSSF) best practices badge Karmada's CII Best Practices assessment.
 * Development Pipeline.  A description of the testing and assessment processes that
   the software undergoes as it is developed and built. Be sure to include specific
 information such as if contributors are required to sign commits, if any container
