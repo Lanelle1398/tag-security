@@ -109,7 +109,7 @@ Two types of deployment strategies are generally used:
 3. Deployment via Receive in order to scale out or integrate with other remote write-compatible sources:
    ![Thanos High Level Arch Diagram (Receive)](res/thanos-high-level-arch-diagram-receive.png)
 
-### Actions
+### Actions (WIP)
 These are the steps that a project performs in order to provide some service
 or functionality.  These steps are performed by different actors in the system.
 Note, that an action need not be overly descriptive at the function call level.
@@ -158,7 +158,7 @@ Limitations:
 * Easy integration points for custom metric providers -->
 
 
-### Non-goals
+### Non-goals (WIP)
 <!--*Non-goals that a reasonable reader of the project’s literature could believe may
 be in scope (e.g., Flibble does not intend to stop a party with a key from storing
 an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
@@ -183,7 +183,7 @@ to assist in a joint-assessment, necessary for projects under incubation.  Taken
 together, this document and the joint-assessment serve as a cornerstone for if and when
 Thanos seeks graduation and is preparing for a security audit.
 
-## Security functions and features
+## Security functions and features (WIP)
 
 * Critical.  A listing critical security components of the project with a brief
 description of their importance.  It is recommended these be used for threat modeling.
@@ -286,7 +286,7 @@ Incident Response
 > * 
 SOURCE : [https://github.com/thanos-io/thanos/security]
 
-## Appendix
+## Appendix (WIP)
 
 ##### Known Issues Over Time.
 
