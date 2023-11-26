@@ -104,9 +104,10 @@ what prevents an attacker from moving laterally after a compromise.-->
 
 Two types of deployment strategies are generally used:
 1. Deployment with Thanos Sidecar for Kubernetes
-   ![Thanos High Level Arch Diagram (Sidecar)](res/thanos-high-level-arch-diagram.png)
-2. Deployment via Receive in order to scale out or integrate with other remote write-compatible sources:
-   ![Thanos High Level Arch Diagram (Receive)](res/thanos-high-level-arch-diagram.png)
+   ![Thanos High Level Arch Diagram (Sidecar)](res/thanos-high-level-arch-diagram-sidecar.png)
+   
+3. Deployment via Receive in order to scale out or integrate with other remote write-compatible sources:
+   ![Thanos High Level Arch Diagram (Receive)](res/thanos-high-level-arch-diagram-receive.png)
 
 ### Actions
 These are the steps that a project performs in order to provide some service
