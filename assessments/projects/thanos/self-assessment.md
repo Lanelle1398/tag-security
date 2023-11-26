@@ -273,17 +273,17 @@ Responsible Disclosures Process
 SOURCE : [https://github.com/thanos-io/thanos/security]
 
 > Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling​​. 
-  Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com​​.
-  Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive​​.
+ >  Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com​​.
+ >  Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive​​.
 Vulnerability Response Process
-  Responsibility: The Thanos team is responsible for responding to security vulnerability reports.
-  Reporting Process: Vulnerabilities are reported via email to the Thanos team thanos-io@googlegroups.com. The team likely follows internal procedures for       validating and addressing these reports, although specific details of this process are not publicly documented.
-  Response Actions: The team investigates and works to resolve the reported vulnerabilities.
+  > Responsibility: The Thanos team is responsible for responding to security vulnerability reports.
+  > Reporting Process: Vulnerabilities are reported via email to the Thanos team thanos-io@googlegroups.com. The team likely follows internal procedures for validating and addressing these reports, although specific details of this process are not publicly documented.
+  > Response Actions: The team investigates and works to resolve the reported vulnerabilities.
 
 Incident Response
-&nbsp; Triage and Confirmation: The team performs an initial assessment to confirm the validity of the reported vulnerability or security incident. [github issues]
-&nbsp; Notification: They are on thanos.io / @ThanosMetrics / github repo
-&nbsp; Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software​​.
+> Triage and Confirmation: The team performs an initial assessment to confirm the validity of the reported vulnerability or security incident. [github issues]
+> Notification: They are on thanos.io / @ThanosMetrics / github repo
+> Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software​​.
 
 
 ## Appendix
