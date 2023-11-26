@@ -188,9 +188,11 @@ These features and practices demonstrate Thanos's commitment to security within 
 
 ## Project compliance
 
-* Compliance.  List any security standards or sub-sections the project is
-  already documented as meeting (PCI-DSS, COBIT, ISO, GDPR, etc.).
-* The Thanos project follows established CNCF and OSS best practices for code development and delivery. Thanos passes OpenSSF Best Practices.
+<!--* Compliance.  List any security standards or sub-sections the project is
+  already documented as meeting (PCI-DSS, COBIT, ISO, GDPR, etc.). -->
+*  Thanos has achieved a silver Open Source Security Foundation (OpenSSF) best practices badge. Thanos has met all the security criteria outlined on OpenSSF.
+
+
 
 ## Secure development practices
 
