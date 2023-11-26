@@ -333,7 +333,7 @@ Despite these challenges, the hybrid solution was able to meet their needs. It a
 
 For the past 3 years, the ability of Thanos components to play various roles within their architecture to support their ever-increasing scale of Prometheus-based metrics has been extremely valuable.
 
-Medallia is now considering a shift to a 100% remote-write architecture with centralized storage to reduce overall complexity. However, they expect Thanos' components to remain a major part of their solution. They recommend Thanos to anyone facing a need to operate Prometheus metrics at and the abilitiy to mantain flexibility in their architecture to accommodate change.
+Medallia is now considering a shift to a 100% remote-write architecture with centralized storage to reduce overall complexity. However, they expect Thanos' components to remain a major part of their solution. They recommend Thanos to anyone facing a need to operate Prometheus metrics at any scale and the abilitiy to mantain flexibility in their architecture to accommodate change.
 
 To read more, see [2022-09-08-thanos-at-medallia.md](https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md)
 
