@@ -260,7 +260,7 @@ Communication Channels:
 
 ## Security issue resolution
 
-* Responsible Disclosures Process. A outline of the project's responsible
+<!--* Responsible Disclosures Process. A outline of the project's responsible
   disclosures process should suspected security issues, incidents, or
 vulnerabilities be discovered both external and internal to the project. The
 outline should discuss communication methods/strategies.
@@ -268,7 +268,22 @@ outline should discuss communication methods/strategies.
     report. What is the reporting process? How would you respond?
 * Incident Response. A description of the defined procedures for triage,
   confirmation, notification of vulnerability or security incident, and
-patching/update availability.
+patching/update availability.-->
+Responsible Disclosures Process
+SOURCE : [https://github.com/thanos-io/thanos/security]
+&nbsp; Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling​​. 
+&nbsp; Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com​​.
+&nbsp; Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive​​.
+Vulnerability Response Process
+&nbsp; Responsibility: The Thanos team is responsible for responding to security vulnerability reports.
+&nbsp; Reporting Process: Vulnerabilities are reported via email to the Thanos team. The team likely follows internal procedures for validating and addressing these reports, although specific details of this process are not publicly documented.
+&nbsp; Response Actions: The team investigates and works to resolve the reported vulnerabilities.
+
+Incident Response
+&nbsp; Triage and Confirmation: The team performs an initial assessment to confirm the validity of the reported vulnerability or security incident. [github issues]
+&nbsp; Notification: They are on thanos.io / @ThanosMetrics / github repo
+&nbsp; Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software​​.
+
 
 If you encounter a security vulnerability, please let us know privately via the Thanos Team email address: thanos-io@googlegroups.com.
 
