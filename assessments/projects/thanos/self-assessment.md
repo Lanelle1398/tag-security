@@ -283,8 +283,7 @@ Incident Response
 > * Triage and Confirmation: The team performs an initial assessment to confirm the validity of the reported vulnerability or security incident. [github issues]
 > * Notification: They are on thanos.io / @ThanosMetrics / github repo
 > * Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software​​.
-> * 
-SOURCE : [https://github.com/thanos-io/thanos/security]
+    SOURCE : [https://github.com/thanos-io/thanos/security]
 
 ## Appendix (WIP)
 
