@@ -289,11 +289,11 @@ SOURCE : [https://github.com/thanos-io/thanos/security]
 
 ## Appendix
 
-* Known Issues Over Time.
-  
+# *  Known Issues Over Time.
+
 There are no vulnerabilites disclosed for the Thanos project, but still the project is impacted by the vulnerabilites in the underlying frameworks and tools it uses (for instance vulnerabilites in Golang). All Thanos project security related issues (both fixes and enhancements) are not spearate from the other Github issues.
 
-* [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).
+# * [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).
   
 The Thanos project has achieved the passing level criteria and has also attained a silver badge in Open Source Security Foundation (OpenSSF) best practices badge.
  [Thanos openssf best practies](https://www.bestpractices.dev/en/projects/3048).  
@@ -302,16 +302,16 @@ The Thanos project has achieved the passing level criteria and has also attained
   with respect to CII best practices and what it would need to
   achieve the badge.-->
   
-* Case Studies. Provide context for reviewers by detailing 2-3 scenarios of
+# * Case Studies. Provide context for reviewers by detailing 2-3 scenarios of
   real-world use cases.
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
 
 
-* Related Projects / Vendors. Reflect on times prospective users have asked
+# * Related Projects / Vendors. Reflect on times prospective users have asked
   about the differences between your project and projectX. Reviewers will have
 the same question.
 
-*STRIDE modeling
+# * STRIDE modeling
 
