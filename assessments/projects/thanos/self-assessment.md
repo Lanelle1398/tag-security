@@ -130,7 +130,8 @@ General:
 * Unlimited Retention: Storing metrics for an unlimited time in the chosen object storage.
 * Downsampling & Compaction: Downsampling historical data for faster query execution and configuring complex retention policies​​.
 
-Security
+Security:
+
 These features and practices demonstrate Thanos's commitment to security within its scope of enhancing Prometheus's monitoring capabilities. However, it is important to note that the Thanos team does not consider themselves security experts and focuses on avoiding security concerns rather than implementing advanced security features.
 
 * Best Programming Practices: The Thanos team emphasizes the use of best programming practices. This includes heavy testing, end-to-end tests against major object storages, using vetting and static analysis tools for every pull request, and employing secure protocols in their building processes, such as when producing Docker images.
