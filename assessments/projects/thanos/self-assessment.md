@@ -47,7 +47,7 @@ use the table below as an example:
 | Doc | url |
 | -- | -- |
 | Security file | https://github.com/thanos-io/thanos/blob/main/SECURITY.md |
-| Default and optional configs | https://example.org/config |
+| Default and optional configs |  |
 
 ## Overview
 
