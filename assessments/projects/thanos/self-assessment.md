@@ -189,6 +189,7 @@ These features and practices demonstrate Thanos's commitment to security within 
 
 * Compliance.  List any security standards or sub-sections the project is
   already documented as meeting (PCI-DSS, COBIT, ISO, GDPR, etc.).
+* The Thanos project follows established CNCF and OSS best practices for code development and delivery. Thanos passes OpenSSF Best Practices.
 
 ## Secure development practices
 
@@ -209,16 +210,6 @@ virtualization for 80% of cloud users. So, our small number of "users" actually
 represents very wide usage across the ecosystem since every virtual instance uses
 Flibber encryption by default.)
 
-[added in](not sure if right though)
-
-* The Thanos project follows established CNCF and OSS best practices for code development and delivery. Thanos passes OpenSSF Best Practices.
-* Thanos follows secure development practices, including:
-* Following best programming practices. We test heavily, including e2e tests against major object storages. We use vetting and static analysis tools on every pull request. We use secure protocols for building processes, e.g. when producing Docker images.
-* We use stable Go versions to build our images and binaries. We update Go as soon as a new version is released.
-* We use only FLOSS tools.
-* If we use crypto tools, we always rely on FLOSS and standard libraries, like the official Go crypt library.
-* We always use TLS by default for communication with all object storages.
-* We don't put any data that is stored in the TSDB into logs or instrumentation.
 
 
 ## Security issue resolution
