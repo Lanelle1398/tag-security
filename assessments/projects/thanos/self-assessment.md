@@ -275,3 +275,6 @@ record in catching issues in code review or automated testing.
 * Related Projects / Vendors. Reflect on times prospective users have asked
   about the differences between your project and projectX. Reviewers will have
 the same question.
+
+*STRIDE modeling
+
