@@ -194,7 +194,7 @@ for changes to the project.
 the project, such as deployment configurations, settings, etc.  These should also be
 included in threat modeling.
 
-
+<!--
 Major source ( https://thanos.io/tip/thanos/security.md/ & https://www.bestpractices.dev/en/projects/3048#security)
 
 The Thanos project, while primarily focused on enhancing Prometheus's capabilities in monitoring and data storage, also incorporates several security-related functions and features:
@@ -206,7 +206,7 @@ The Thanos project, while primarily focused on enhancing Prometheus's capabiliti
 * Secured delivery against man-in-the-middle (MITM) attacks
 * Software Updates and Reliability: The team uses stable versions of Go for building their images and binaries and updates to new versions as soon as they are released. This practice helps in maintaining the security and reliability of the software.
 Limitations:Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
-These features and practices demonstrate Thanos's commitment to security within its scope of enhancing Prometheus's monitoring capabilities. However, it is important to note that the Thanos team does not consider themselves security experts and focuses on avoiding security concerns rather than implementing advanced security features
+These features and practices demonstrate Thanos's commitment to security within its scope of enhancing Prometheus's monitoring capabilities. However, it is important to note that the Thanos team does not consider themselves security experts and focuses on avoiding security concerns rather than implementing advanced security features -->
 
 
 ## Project compliance
