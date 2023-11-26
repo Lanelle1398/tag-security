@@ -308,11 +308,17 @@ Many organisations have adopted Thanos and are using our project in production [
 ###### Aiven 
 Aiven is a cloud-native data infrastructure platform that provides fully managed open source database, streaming, and analytics services on 11 clouds and over 150 regions. Aiven offers open source products including PostgreSQL, MySQL, ClickHouse, Cassandra, M3, InfluxDB, along with streaming platforms such as Kafka and Flink. Aiven has a major investment in upstream contributions not altering the true open source solutions which are offered making Aiven the open source data platform for everyone. Aiven also provide ease of use, reliability, scalability, security, and cost-effectiveness for their users.
 
+Initially, Aiven used InfluxDB but it was unable to handle their scale of fleet and variability of cloud infrasturcture.  M3 fit the bill, architecturally, at the time.  Fast forward to 2022, with the changes at Uber and Chronosphere , contibutions were no longer being made to M3DB.  M3DB was missing a lot of new functionality which were introduced to Prometheus over time. As a result, Aiven had to look for a replacement project.
+
+After conducting their research, they saw that their main options were Cortex and Thanos. Cortex has similar problems to M3DB. Thanos was the better fit. It had a vibrant ecosystem, aligned with software foundations, and was Apache 2.0 licensed. Aiven tested Thanos by using proof of concept. After conducting the test, Aiven found that Thanos was feasible and its cost savings were pretty significant. Additionally, Thanos performed better than M3DB and Thanos' queries were faster.
+
+Aiven is excited to offer a managed Thanos as a service as a product . They plan to continue contibuting to Thanos, and hope to have dedicated members of  their open source program office (OSPO) in the future working in the Thanos community.
+
+To read more see [2023-06-08-thanos-at-aiven.md](https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md)
 
 
-  https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
-  https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md
-  https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
+https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
+https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
 
 
 #### Related Projects / Vendors. 
