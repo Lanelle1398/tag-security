@@ -219,7 +219,7 @@ These features and practices demonstrate Thanos's commitment to security within 
 
 
 ## Secure development practices
-* Thanos has achieved the passing level criteria in Open Source Security Foundation (OpenSSF) best practices badge Karmada's CII Best Practices assessment.
+* Thanos has achieved the passing level criteria in Open Source Security Foundation (OpenSSF) best practices.
 <!--* Development Pipeline.  A description of the testing and assessment processes that
   the software undergoes as it is developed and built. Be sure to include specific
 information such as if contributors are required to sign commits, if any container
@@ -241,17 +241,20 @@ Source : https://thanos.io/tip/contributing/contributing.md/
 Signing Work - DCO Process: Contributors agree to the Developer Certificate of Origin (DCO) and must sign off their commits with their name and email. This ensures the legal right to make contributions​​.
 Testing and Formatting: Various make commands are used to ensure the code and documentation adhere to standards. This includes make docs, make changed-docs, make check-docs, and make format for code formatting​​.
 Testing Procedures: Thanos includes several testing commands such as make test for Go unit tests, make test-local excluding tests for object storage integrations, and make test-e2e for end-to-end docker-based tests​​.
-Development Pipeline
-Commit Signing: Contributors sign their commits as part of the DCO process.
-Testing and Assessment: The code undergoes various tests including unit tests, local tests excluding certain integrations, and end-to-end tests.
-Code Review: While specific information on the number of reviewers required before merging isn't explicitly detailed, the use of GitHub for project hosting implies a collaborative review process. [we can see from approved PR’s that a good number of people review the PR before it merges]
-Automated Checks: Automated formatting checks and tests are part of the development process, ensuring code quality and standards.
-Communication Channels
-Internal Communication: Team members likely use tools like GitHub and Slack for internal communication, with dedicated channels for development discussions. [No evidence for slack but this is a general norm]
-Inbound Communication: Users or prospective users can interact with the team via the #thanos and #thanos-dev channels on Slack​​.
-Outbound Communication: Updates and announcements are shared on social media platforms like Twitter (@ThanosMetrics). The Thanos Community Office Hours serve as a forum for updates and discussions​​.
-Ecosystem Integration: Thanos, as an extension of Prometheus, fits into the cloud-native ecosystem by enhancing monitoring and long-term data storage. Its integration with Prometheus makes it a key component in the observability stack for cloud users, indirectly impacting a wide range of users relying on cloud services.
 
+Development Pipeline:
+
+* Commit Signing: Contributors sign their commits as part of the DCO process.
+Testing and Assessment: The code undergoes various tests including unit tests, local tests excluding certain integrations, and end-to-end tests.
+* Code Review: While specific information on the number of reviewers required before merging isn't explicitly detailed, the use of GitHub for project hosting implies a collaborative review process. [we can see from approved PR’s that a good number of people review the PR before it merges]
+* Automated Checks: Automated formatting checks and tests are part of the development process, ensuring code quality and standards.
+  
+Communication Channels:
+
+* Internal Communication: Team members use tools like GitHub and Slack for internal communication, with dedicated channels for development discussions.
+* Inbound Communication: Users or prospective users can interact with the team via the #thanos and #thanos-dev channels on Slack​​.
+* Outbound Communication: Updates and announcements are shared on social media platforms like Twitter (@ThanosMetrics). The Thanos Community Office Hours serve as a forum for updates and discussions​​.
+* Ecosystem Integration: Thanos, as an extension of Prometheus, fits into the cloud-native ecosystem by enhancing monitoring and long-term data storage. Its integration with Prometheus makes it a key component in the observability stack for cloud users, indirectly impacting a wide range of users relying on cloud services.
 
 
 
