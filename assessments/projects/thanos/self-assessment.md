@@ -170,6 +170,7 @@ for changes to the project.
   brief description.  These are considered important to enhance the overall security of
 the project, such as deployment configurations, settings, etc.  These should also be
 included in threat modeling.
+
 Major source ( https://thanos.io/tip/thanos/security.md/ )
 
 The Thanos project, while primarily focused on enhancing Prometheus's capabilities in monitoring and data storage, also incorporates several security-related functions and features:
