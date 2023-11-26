@@ -1,0 +1,20 @@
+# Communication
+
+## Slack
+
+[#thanos](https://slack.cncf.io/)
+
+**Project proposal and Initial questions**
+
+Hi!
+I am Saurabh Rajguru and my team of five students from New York University are carrying out a security self-assessment of the [Thanos Project](https://thanos.io/).
+
+This assessment is inline with the CNCF Security Technical Advisory Group's (CNCF Security TAG) security assessment process.
+The [self-assessment](https://github.com/cncf/tag-security/blob/main/assessments/guide/self-assessment.md) is the first step for initiating a joint assessment with the CNCF Security TAG.
+
+This is being done as part of a graduate level course under Justin Cappos, Professor at New York University. Refer [[1]](https://github.com/cncf/tag-security/issues/1102)
+He is a [Technical Lead](https://github.com/cncf/tag-security/blob/main/governance/roles.md#role-of-technical-leads) and
+[Security Assessment Facilitator](https://github.com/cncf/tag-security/blob/main/governance/roles.md#facilitation-roles) in CNCF Security TAG.
+
+Questions:
+1.

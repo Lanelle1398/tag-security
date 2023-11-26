@@ -5,8 +5,8 @@ documentation for their users. This document is ideal for projects currently in 
 CNCF **sandbox** as well as projects that are looking to receive a joint assessment and
 currently in CNCF **incubation**.
 
-For a detailed guide with step-by-step discussion and examples, check out the free 
-Express Learning course provided by Linux Foundation Training & Certification: 
+For a detailed guide with step-by-step discussion and examples, check out the free
+Express Learning course provided by Linux Foundation Training & Certification:
 [Security Assessments for Open Source Projects](https://training.linuxfoundation.org/express-learning/security-self-assessments-for-open-source-projects-lfel1005/).
 
 # Self-assessment outline
@@ -62,21 +62,21 @@ Highly available Prometheus setup with long term storage capabilities
 <!-- Provide information for reviewers who may not be familiar with your project's -->
 <!-- domain or problem area. -->
 
-Thanos as a tool extends the capabilities of the Prometheus monitoring tool. 
+Thanos as a tool extends the capabilities of the Prometheus monitoring tool.
 It does so by providing:
 
-* Global View: Thanos allows you to have a global view of your Prometheus metrics. 
+* Global View: Thanos allows you to have a global view of your Prometheus metrics.
   It enables you to query metrics from multiple Prometheus instances across different clusters/systems.
 
 * Long-Term Storage: Thanos provides a solution for long-term storage of Prometheus metrics.
   It can store historical data in object storage systems like Amazon S3, Google Cloud Storage,
   or any other compatible storage backend.
 
-* High Availability: By distributing Prometheus data across multiple instances and using 
-  object storage for long-term storage, Thanos helps in achieving high availability and 
+* High Availability: By distributing Prometheus data across multiple instances and using
+  object storage for long-term storage, Thanos helps in achieving high availability and
   fault tolerance.
 
-* Query Federation: Thanos supports query federation, which means you can run queries across 
+* Query Federation: Thanos supports query federation, which means you can run queries across
   multiple Prometheus instances and retrieve the aggregated results.
 
 * Component Architecture: Thanos is composed of several components, including sidecar, querier,
@@ -88,7 +88,7 @@ By using Thanos in conjunction with Prometheus, organizations can address the ch
 scope of this assessment, we will be assuming deployment on Kubernetes clusters.
 
 ### Actors
-<!-- These are the individual parts of your system that interact to provide the 
+<!-- These are the individual parts of your system that interact to provide the
 desired functionality.  Actors only need to be separate, if they are isolated
 in some way.  For example, if a service has a database and a front-end API, but
 if a vulnerability in either one would compromise the other, then the distinction
@@ -102,21 +102,26 @@ what prevents an attacker from moving laterally after a compromise.-->
 * Metric Sources: Components that produce or collect metric data, such as the Prometheus sidecar and rule nodes.
 * Users: Individuals or organizations utilizing Thanos for their metrics storage and querying needs
 
+Two types of deployment strategies are generally used:
+1. Deployment with Thanos Sidecar for Kubernetes
+   ![Thanos High Level Arch Diagram (Sidecar)](res/thanos-high-level-arch-diagram.png)
+2. Deployment via Receive in order to scale out or integrate with other remote write-compatible sources:
+   ![Thanos High Level Arch Diagram (Receive)](res/thanos-high-level-arch-diagram.png)
 
 ### Actions
 These are the steps that a project performs in order to provide some service
 or functionality.  These steps are performed by different actors in the system.
-Note, that an action need not be overly descriptive at the function call level.  
-It is sufficient to focus on the security checks performed, use of sensitive 
-data, and interactions between actors to perform an action.  
+Note, that an action need not be overly descriptive at the function call level.
+It is sufficient to focus on the security checks performed, use of sensitive
+data, and interactions between actors to perform an action.
 
-For example, the access server receives the client request, checks the format, 
-validates that the request corresponds to a file the client is authorized to 
-access, and then returns a token to the client.  The client then transmits that 
+For example, the access server receives the client request, checks the format,
+validates that the request corresponds to a file the client is authorized to
+access, and then returns a token to the client.  The client then transmits that
 token to the file server, which, after confirming its validity, returns the file.
 
 ### Goals
-<!-- The intended goals of the projects including the security guarantees the project 
+<!-- The intended goals of the projects including the security guarantees the project
  is meant to provide (e.g., Flibble only allows parties with an authorization
 key to change data it stores).-->
 * Global Query View: Scaling Prometheus setups to allow querying across multiple servers and clusters.
@@ -142,8 +147,8 @@ key to change data it stores).-->
 be in scope (e.g., Flibble does not intend to stop a party with a key from storing
 an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
  the servers) -->
- 
-Although securing metrics is important for the sake of data privacy & integrity, security is not the reason for existence for the Thanos project.The project primarily aims to enable users to analyze historical data retrospectively, especially data that may not have been stored by Prometheus initially. This can be useful for purposes such as diagnosing security breaches or utilizing metric-like data over time. 
+
+Although securing metrics is important for the sake of data privacy & integrity, security is not the reason for existence for the Thanos project.The project primarily aims to enable users to analyze historical data retrospectively, especially data that may not have been stored by Prometheus initially. This can be useful for purposes such as diagnosing security breaches or utilizing metric-like data over time.
 Additionally, Thanos aims to be a lightweight, highly available program to store metrics and crunch numbers, so it would be misinformed to assume data security is the priority in all components of their project. (i.e. lack of encryption of locally stored data).
 
 ## Self-assessment use
