@@ -375,8 +375,8 @@ Key differences:
 
 * Storage
    * Cortex: To store and query time series data, block storage (based non Prometheus TSDB) is used. Can also be configured to use local storage.
-
    * Thanos: Metrics stored in configurable object storage clients.
+    
 * Features
   * Cortex:
   * Thanos:
