@@ -343,5 +343,12 @@ To read more, see [2022-09-08-thanos-at-medallia.md](https://github.com/thanos-i
 Reflect on times prospective users have asked about the differences between your project and projectX. Reviewers will have
 the same question.
 
+###### Mimir
+###### Cortex
+###### Prometheus
+
+
+
+
 #### STRIDE modeling
 
