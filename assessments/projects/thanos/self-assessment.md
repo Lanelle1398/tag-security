@@ -277,8 +277,9 @@ If you encounter a security vulnerability, please let us know privately via the 
 * Known Issues Over Time. 
 There are no vulnerabilites disclosed for the Thanos project, but still the project is impacted by the vulnerabilites in the underlying frameworks and tools it uses (for instance vulnerabilites in Golang). All Thanos project security related issues (both fixes and enhancements) are not spearate from the other Github issues.
 * [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).
-  The Thanos project has achieved the passing level criteria and is in the process of working towards attaining a silver badge in Open Source Security Foundation (OpenSSF) best practices badge.
-  [Thanos openssf best practies](https://www.bestpractices.dev/en/projects/3048).  
+  
+The Thanos project has achieved the passing level criteria and is in the process of working towards attaining a silver badge in Open Source Security Foundation (OpenSSF) best practices badge.
+ [Thanos openssf best practies](https://www.bestpractices.dev/en/projects/3048).  
 
   <!--Best Practices. A brief discussion of where the project is at
   with respect to CII best practices and what it would need to
