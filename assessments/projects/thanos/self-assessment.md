@@ -318,10 +318,10 @@ To read more see [2023-06-08-thanos-at-aiven.md](https://github.com/thanos-io/th
 ###### Medallia
 Medallia successfully operates a hybrid Thanos architecture that allows their users to experience high-performance queries of software and infrastructure metrics generated across 10 large colocation data centers and 30+ small virtual data centers via a single pane of glass.
 
-By “hybrid”, they mean that they use both federated queries and remote write, both services of Thanos Query.
+By “hybrid”, they mean that they use federated queries and remote write - both services of Thanos Query.
 
-In their observability journey, Medallia faced several issues such as a costly cloud based vendor solution to a self hosted open source solution with a limited scale.
-Medallia adopted Prometheus and Thanos to address these scalability issues.
+In their observability journey, Medallia faced several issues such as a costly cloud based vendor solution to a self hosted open source solution with a limited scale. Medallia adopted Prometheus and Thanos to address these scalability issues.
+
 Thanos addressed several problems by:
 * Horizontally scaling their Prometheus.
 * Retaining one year of metrics samples without vertically scaling their Prometheuses.
