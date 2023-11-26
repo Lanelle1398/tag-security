@@ -315,6 +315,12 @@ Aiven is excited to offer a managed Thanos as a service as a product . They plan
 
 To read more see [2023-06-08-thanos-at-aiven.md](https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md)
 
+###### Medallia
+Medallia successfully operates a hybrid Thanos architecture that allows their users to experience high-performance queries of software and infrastructure metrics generated across 10 large colocation data centers and 30+ small virtual data centers via a single pane of glass.
+
+By “hybrid”, they mean that they have a single, global Thanos Query deployment which makes federated queries to the large colocation data centers via chained Thanos Query components. Additionally, the global Thanos Query also talks to a Thanos Receive ring that receives samples via remote write from the smaller virtual data centers, which are public cloud (AWS, OCI, etc.) Kubernetes clusters.
+
+In their observability journey, Medallia faced several issues such as a costly cloud based vendor solution to a self hosted open source solution with a limited scale.
 
 https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
 https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
