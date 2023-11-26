@@ -274,15 +274,15 @@ If you encounter a security vulnerability, please let us know privately via the 
 
 ## Appendix
 
-* Known Issues Over Time. List or summarize statistics of past vulnerabilities
-  with links. If none have been reported, provide data, if any, about your track
-record in catching issues in code review or automated testing.
+* Known Issues Over Time. 
+There are no vulnerabilites disclosed for the Thanos project, but still the project is impacted by the vulnerabilites in the underlying frameworks and tools it uses (for instance vulnerabilites in Golang). All Thanos project security related issues (both fixes and enhancements) are not spearate from the other Github issues.
 * [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).
+  The Thanos project has achieved the passing level criteria and is in the process of working towards attaining a silver badge in Open Source Security Foundation (OpenSSF) best practices badge.
+  [Thanos openssf best practies](https://www.bestpractices.dev/en/projects/3048).  
 
-
-  Best Practices. A brief discussion of where the project is at
+  <!--Best Practices. A brief discussion of where the project is at
   with respect to CII best practices and what it would need to
-  achieve the badge.
+  achieve the badge.-->
 * Case Studies. Provide context for reviewers by detailing 2-3 scenarios of
   real-world use cases.
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
