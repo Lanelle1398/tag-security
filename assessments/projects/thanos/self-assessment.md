@@ -374,7 +374,7 @@ Key differences:
   * Thanos: Can be deployed independently enabling gradual rollouts and complex deployment scenarios. Thanos can also be rolled out incrementally along side a Prometheus deployment using the side car approach.
 
 * Storage
-   * Cortex: To store and query time series data, block storage (based non Prometheus TSDB) is used. Can also be configured to use local storage.
+   * Cortex: To store and query time series data, block storage (based on Prometheus TSDB) is used. Can also be configured to use local storage.
    * Thanos: Metrics stored in configurable object storage clients.
     
 * Features
