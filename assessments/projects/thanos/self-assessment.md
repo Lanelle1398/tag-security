@@ -373,9 +373,13 @@ Key differences:
   * Cortex: Rolled out as a single binary or as multiple independent microservices. Single binery approach is simple and good for testing. Multiple independent approach is used for the prouction stage. It allows you to  scale services for storing and querying metrics as well as for isolating failures.
   * Thanos: Can be deployed independently enabling gradual rollouts and complex deployment scenarios. Thanos can also be rolled out incrementally along side a Prometheus deployment using the side car approach.
 
-######## Storage
+* Storage
+   * Cortex: To store and query time series data, block storage (based non Prometheus TSDB) is used. Can also be configured to use local storage.
 
-######## Features
+   * Thanos: Metrics stored in configurable object storage clients.
+* Features
+  * Cortex:
+  * Thanos:
 
 
 
