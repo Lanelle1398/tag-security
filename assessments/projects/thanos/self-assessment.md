@@ -302,7 +302,8 @@ The Thanos project has achieved the passing level criteria and has also attained
   achieve the badge.-->
   
 #### Case Studies. 
-  Provide context for reviewers by detailing 2-3 scenarios of real-world use cases.
+Many organisations have adopted Thanos and are using our project in production [adopters-list](https://github.com/thanos-io/thanos/blob/main/website/data/adopters.yml).Here are few Case studies:
+
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
