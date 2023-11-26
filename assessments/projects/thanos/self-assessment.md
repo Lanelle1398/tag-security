@@ -271,13 +271,13 @@ outline should discuss communication methods/strategies.
 patching/update availability.-->
 Responsible Disclosures Process
 SOURCE : [https://github.com/thanos-io/thanos/security]
-&nbsp; Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling​​. 
-&nbsp; Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com​​.
-&nbsp; Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive​​.
+  Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling​​. 
+  Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com​​.
+  Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive​​.
 Vulnerability Response Process
-&nbsp; Responsibility: The Thanos team is responsible for responding to security vulnerability reports.
-&nbsp; Reporting Process: Vulnerabilities are reported via email to the Thanos team. The team likely follows internal procedures for validating and addressing these reports, although specific details of this process are not publicly documented.
-&nbsp; Response Actions: The team investigates and works to resolve the reported vulnerabilities.
+  Responsibility: The Thanos team is responsible for responding to security vulnerability reports.
+  Reporting Process: Vulnerabilities are reported via email to the Thanos team. The team likely follows internal procedures for       validating and addressing these reports, although specific details of this process are not publicly documented.
+  Response Actions: The team investigates and works to resolve the reported vulnerabilities.
 
 Incident Response
 &nbsp; Triage and Confirmation: The team performs an initial assessment to confirm the validity of the reported vulnerability or security incident. [github issues]
