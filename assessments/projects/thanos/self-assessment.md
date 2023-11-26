@@ -302,15 +302,15 @@ The Thanos project has achieved the passing level criteria and has also attained
   with respect to CII best practices and what it would need to
   achieve the badge.-->
   
-#### Case Studies. Provide context for reviewers by detailing 2-3 scenarios of
-  real-world use cases.
+#### Case Studies. 
+  Provide context for reviewers by detailing 2-3 scenarios of real-world use cases.
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md
   https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
 
 
-#### Related Projects / Vendors. Reflect on times prospective users have asked
-  about the differences between your project and projectX. Reviewers will have
+#### Related Projects / Vendors. 
+Reflect on times prospective users have asked about the differences between your project and projectX. Reviewers will have
 the same question.
 
 #### STRIDE modeling
