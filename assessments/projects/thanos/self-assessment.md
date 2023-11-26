@@ -119,8 +119,12 @@ token to the file server, which, after confirming its validity, returns the file
 <!-- The intended goals of the projects including the security guarantees the project 
  is meant to provide (e.g., Flibble only allows parties with an authorization
 key to change data it stores).-->
+* Global Query View: Scaling Prometheus setups to allow querying across multiple servers and clusters.
+* Unlimited Retention: Storing metrics for an unlimited time in the chosen object storage.
+* Downsampling & Compaction: Downsampling historical data for faster query execution and configuring complex retention policies​​.
 
-* Global query view of metrics.
+
+<!--* Global query view of metrics.
 * Unlimited retention of metrics.
 * High availability of components, including Prometheus.
 * Deduplication and merging of metrics collected from Prometheus HA pairs
@@ -130,7 +134,7 @@ key to change data it stores).-->
 * Cross-cluster federation
 * Fault-tolerant query routing
 * Simple gRPC "Store API" for unified data access across all metric data
-* Easy integration points for custom metric providers
+* Easy integration points for custom metric providers -->
 
 
 ### Non-goals
@@ -166,6 +170,18 @@ for changes to the project.
   brief description.  These are considered important to enhance the overall security of
 the project, such as deployment configurations, settings, etc.  These should also be
 included in threat modeling.
+Major source ( https://thanos.io/tip/thanos/security.md/ )
+
+The Thanos project, while primarily focused on enhancing Prometheus's capabilities in monitoring and data storage, also incorporates several security-related functions and features:
+
+* Best Programming Practices: The Thanos team emphasizes the use of best programming practices. This includes heavy testing, end-to-end tests against major object storages, using vetting and static analysis tools for every pull request, and employing secure protocols in their building processes, such as when producing Docker images.
+* Data Handling and Privacy: Thanos does not log or use instrumentation to record data stored in the TSDB (Time Series Database). This approach is crucial for ensuring the privacy and security of stored metrics data.
+* Use of Cryptography Tools: Whenever cryptographic tools are utilized, Thanos relies on free, libre, open-source software (FLOSS) and standard libraries, such as the official Go cryptography library. This ensures the use of well-vetted and secure cryptographic methods.
+* Transport Layer Security (TLS): TLS is used by default for communication with all object storages, providing an additional layer of security for data in transit.
+* Software Updates and Reliability: The team uses stable versions of Go for building their images and binaries and updates to new versions as soon as they are released. This practice helps in maintaining the security and reliability of the software.
+Limitations:Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
+These features and practices demonstrate Thanos's commitment to security within its scope of enhancing Prometheus's monitoring capabilities. However, it is important to note that the Thanos team does not consider themselves security experts and focuses on avoiding security concerns rather than implementing advanced security features
+
 
 ## Project compliance
 
