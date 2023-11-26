@@ -316,9 +316,8 @@ Aiven is excited to offer a managed Thanos as a service as a product . They plan
 To read more see [2023-06-08-thanos-at-aiven.md](https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md)
 
 ###### Medallia
-Medallia successfully operates a hybrid Thanos architecture that allows their users to experience high-performance queries of software and infrastructure metrics generated across 10 large colocation data centers and 30+ small virtual data centers via a single pane of glass.
+Medallia successfully operates a hybrid architecture involving both federated queries and remote-write using Prometheus and Thanos components. This allows their users to experience high-performance queries of software and infrastructure metrics generated across 10 large colocation data centers and 30+ small virtual data centers via a single pane of glass.
 
-By “hybrid”, they mean that they use federated queries and remote write - both services of Thanos Query.
 
 In their observability journey, Medallia faced several issues such as a costly cloud based vendor solution to a self hosted open source solution with a limited scale. Medallia adopted Prometheus and Thanos to address these scalability issues.
 
@@ -328,6 +327,12 @@ Thanos addressed several problems by:
 * Simplifying management by deploying identical architecture in each data center.
 * Providing a global view of all metrics.
 * Quick implentation of Thanos' components.
+
+In early 2020, the SRE task force handed off their proof of concept to the newly-formed Performance and Observability (POE) team for hardening, widespread launch, and ongoing support. As Medallia expanded into public cloud providers, they faced dificulty with incorporating metrics from smaller virtual data centers.
+
+Medallia's hybrid architecture has enabled flexibility and scalability. They are now considering a shift to a 100% remote-write architecture with centralized storage to reduce overall complexity. They expect Thanos' components to remain a major part of their solution.
+
+
 https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
 https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
 
