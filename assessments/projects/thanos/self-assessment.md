@@ -321,7 +321,13 @@ Medallia successfully operates a hybrid Thanos architecture that allows their us
 By “hybrid”, they mean that they have a single, global Thanos Query deployment which makes federated queries to the large colocation data centers via chained Thanos Query components. Additionally, the global Thanos Query also talks to a Thanos Receive ring that receives samples via remote write from the smaller virtual data centers, which are public cloud (AWS, OCI, etc.) Kubernetes clusters.
 
 In their observability journey, Medallia faced several issues such as a costly cloud based vendor solution to a self hosted open source solution with a limited scale.
-
+Medallia adopted Prometheus and Thanos to address these scalability issues.
+Thanos addressed several problems by:
+* Horizontally scaling their Prometheus.
+* Retaining one year of metrics samples without vertically scaling their Prometheuses.
+* Simplifying management by deploying identical architecture in each data center.
+* Providing a global view of all metrics.
+* Quick implentation of Thanos' components.
 https://github.com/thanos-io/thanos/blob/main/docs/blog/2022-09-08-thanos-at-medallia.md
 https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-02-lfx-mentorship-query-observability.md
 
