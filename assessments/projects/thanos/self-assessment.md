@@ -331,7 +331,7 @@ Thanos addressed several problems by:
 In early 2020, the SRE task force handed off their proof of concept to the newly-formed Performance and Observability (POE) team for hardening, widespread launch, and ongoing support. As Medallia expanded into public cloud providers, they faced dificulty with incorporating metrics from smaller virtual data centers.
 Despite these challenges, the hybrid solution was able to meet their needs. It allowed them to mantain flexibility and stability while adapting to the changing infrastructure landscape.
 
-For the past 3 years, the ability of Thanos components to play various roles within their architecture to support their ever-increasing scale of Prometheus-based metrics has been extremely valuable.
+For the past 3 years, the ability of Thanos components to play various roles within Medallia's architecture to support their ever-increasing scale of Prometheus-based metrics has been extremely valuable.
 
 Medallia is now considering a shift to a 100% remote-write architecture with centralized storage to reduce overall complexity. However, they expect Thanos' components to remain a major part of their solution. They recommend Thanos to anyone facing a need to operate Prometheus metrics at any scale and the abilitiy to mantain flexibility in their architecture to accommodate change.
 
