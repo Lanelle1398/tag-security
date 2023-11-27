@@ -430,7 +430,7 @@ Targets are discovered via service discovery or static configuration
 Multiple modes of graphing and dashboarding support
 
 Key differences:
-* Storage & Scalability: Prometheus is designed for short tem monitoring and can't handle large amounts of historical data. mThanos' distributed storage layer allows for scalable, long term storage and query capabilities.
+* Storage & Scalability: Prometheus is designed for short tem monitoring and can't handle large amounts of historical data. Thanos' distributed storage layer allows for scalable, long term storage and query capabilities.
 * High availability: Prometheus operates in single server mode. Thanos has a distributed architecture and redundancy in many components . Therefore, even in the face of failures seamless querying and retrieval of data is possible.
 * Querying and analysis: Prometheus uses PromQL for retrieve and analyzing time series data. Thanos extends PromQL to query data from multiple Prometheus instances. This enables cross instance aggregation and federation of metrics.
 * Retention and downsampling: Prometheus uses local disk storage for short term solutions.  Thanos uses object storage solutions like (Amazon S3 or Google cloud Storage) for long-term data retention .
