@@ -384,6 +384,7 @@ Key differences:
    *  Seamless Integration with Existing Prometheus Setups: Thanos integrates with a sidecar.  Cortex uses remote write to  push data to  central cluster.
    *  Query Optimization: To improve query speed, Thanos downsamples historical data. Cortex, on the other hand uses optimization techniques like batch iterators, caching indexes, HTTP response compression etc.
    * Data Format: With Tanos, data can be read and written as Prometheus TSDB blocks. Cortex is migrating individual Prometheus chunks to object storage for better scalability.
+     Source: https://last9.io/blog/thanos-vs cortex/#:~:text=Thanos%20Querier%20can%20pull%20data,deduplicated%20into%20a%20single%20copy.
 
 
 ###### Prometheus
@@ -401,7 +402,14 @@ Targets are discovered via service discovery or static configuration
 Multiple modes of graphing and dashboarding support
 
 Key differences:
-h
+* Storage & Scalability: Prometheus is designed for short tem monitoring and can't handle large amounts of historical data. mThanos' distributed storage layer allows for scalable, long term storage and query capabilities.
+* High availability: Prometheus operates in single server mode. Thanos has a distributed architecture and redundancy in many components . Therefore, even in the face of failures seamless querying and retrieval of data is possible.
+* Querying and analysis:
+* Retention and downsampling:
+* Querying:
+* Recording rules:
+* Retention:
+* Downsampling:
 
 
 #### STRIDE modeling
