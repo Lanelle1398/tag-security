@@ -142,7 +142,9 @@ Data Handling and Privacy: Thanos does not log or use instrumentation to record 
 * Software Updates and Reliability: The team uses stable versions of Go for building their images and binaries and updates to new versions as soon as they are released. This practice helps in maintaining the security and reliability of the software. 
 
 Limitations:
-* Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified. 
+* Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
+  
+  Source: https://github.com/thanos-io/thanos/blob/main/SECURITY.md
 
 
 <!--* Global query view of metrics.
