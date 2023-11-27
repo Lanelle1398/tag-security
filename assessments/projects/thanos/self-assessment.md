@@ -354,9 +354,11 @@ Victoria Metrics, while maintaining a simpler architecture, also includes severa
 * vmagent- Data scraper than can pull data from a variety of sources and sends it to Victoria metrics or another remote storage that supports InfluxDB or Prometheus remote write protocol.
 * vmalert- Executes a list of the given alerting or recording rules against configured -datasource.url compatible with Prometheus HTTP API.
 * vmctl- The command line tool provides various useful actions with VictoriaMetrics components. It migrates data feom different TSDBs to Victoria Metrics.
-* vmstorage-
-* vmui-
+* vmstorage- Where data is stored.
+* vmui- Victoria Metrics' user interface.
+  
 Key differences:
+
 
 Sources:
 https://last9.io/blog/thanos-vs-victoriametrics/
