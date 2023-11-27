@@ -358,14 +358,14 @@ Victoria Metrics, while maintaining a simpler architecture, also includes severa
 * vmui- Victoria Metrics' user interface.
   
 Key differences:
-
+* Desing -
 * Architecture- Thanos has a modular system with several components that each have different functions. This system provides functionality. VictoriaMetrics has single node and cluster versions. Victoriametrics provide simplicity and ease of deployment.
 * Storage- Thanos uses TSDB. VictoriaMetrics is morre storage effeicent due to having its own custom storage and compression algorithms.
 *  Query language- Thanos uses PromQL just like Prometheus. VictoriaMetrics uses metricsQl which is baskwards compatible with PromQL.
 * High Avaliability and Reliability: Thanos relies on  object storage for long term data and has replication features in other components; this provides high availability. VictoriaMetrics has a cluster version and stores its data on local storage which provides high availability and redundancy.
 * Downsampling & retention: Both Thanos & VM has downsampling and customizable retention policies, the specifics of each may vary.
 * Integration: Thanos integrates closely with Prometheus and can integrate with Grafana. VictoriaMetrics is compatible with Prometheus, can be used as a replacement for TSDB and can integrate with Grafana, Thanos or Cortex.
-* Performance: 
+* Performance: Both Thanos and VictoriaMetrics handle large workloads seamlessly.  Some prefer Thanos since it has a modular architecture that can be customized for specific setups. Some prefer VictoriaMetrics and believe that it's faster, more resource-effecient and uses CPU and disk space better.
 
 
 
