@@ -388,11 +388,11 @@ Key differences:
 * Features
     *  Global Querying View: Thanos reuses existing Prometheus deployment servers to achieve a global querying view, while Cortex needs a separate central Cortex cluster and storage backend.
     *  Deduplication and Merging of Metrics: * Thanos querier reads from multiple replicas and merges the metrics collected from each pair into a single result. Cortex uses a push-based model. In this model, Cortex elects a leader replica for each Prometheus cluster and drops samples pushed by the other member in the pair. So technically, only samples form a single replica are accepted.
-   *  Seamless Integration with Existing Prometheus Setups: Thanos integrates with a sidecar.  Cortex uses remote write to  push data to  central cluster.
+   *  Seamless Integration with Existing Prometheus Setups: Thanos integrates with a sidecar.  Cortex uses remote write to  push data to a central cluster.
    *  Query Optimization: To improve query speed, Thanos downsamples historical data. Cortex, on the other hand uses optimization techniques like batch iterators, caching indexes, HTTP response compression etc.
-   * Data Format: With Tanos, data can be read and written as Prometheus TSDB blocks. Cortex is migrating individual Prometheus chunks to object storage for better scalability.
+   * Data Format: With Thanos, data can be read and written as Prometheus TSDB blocks. Cortex is migrating individual Prometheus chunks to object storage for better scalability.
 
-Source: https://last9.io/blog/thanos-vs-cortex/#:~:text=Thanos%20Querier%20can%20pull%20data,deduplicated%20into%20a%20single%20copy.
+ Source: https://last9.io/blog/thanos-vs-cortex/#:~:text=Thanos%20Querier%20can%20pull%20data,deduplicated%20into%20a%20single%20copy.
 
 ###### Prometheus
 
@@ -418,7 +418,7 @@ Key differences:
 * Downsampling: Prometheus supports downsampling which involves combining data over large time intervals to minimize storage needs and simplify query processing. Thanos inherits this capability from Prometheus.
 
 
-Source: https://last9.io/blog/prometheus-vs-thanos/
+ Source: https://last9.io/blog/prometheus-vs-thanos/
 
 
 #### STRIDE modeling
