@@ -347,6 +347,7 @@ the same question.
 VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and time series database.
 
 Victoria Metrics, while maintaining a simpler architecture, also includes several core components:
+
 Key differences:
 
 Source: https://last9.io/blog/thanos-vs-victoriametrics/
