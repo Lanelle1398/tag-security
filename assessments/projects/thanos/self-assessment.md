@@ -353,12 +353,12 @@ Victoria Metrics, while maintaining a simpler architecture, also includes severa
 * cluster- Set of components for building horizontally scalable clusters. This version of Voctoria Metrics has extra components such as VMSelect, VMInsert and VMStorage nodes.
 * vmagent- Data scraper than can pull data from a variety of sources and sends it to Victoria metrics or another remote storage that supports InfluxDB or Prometheus remote write protocol.
 * vmalert- Executes a list of the given alerting or recording rules against configured -datasource.url compatible with Prometheus HTTP API.
-* vmctl- The command line tool provides various useful actions with VictoriaMetrics components. It migrates data feom different TSDBs to Victoria Metrics.
+* vmctl- The command line tool provides various useful actions with VictoriaMetrics components. It migrates data from different Timescale Dtabases (TSDBs) to Victoria Metrics.
 * vmstorage- Where data is stored.
 * vmui- Victoria Metrics' user interface.
   
 Key differences:
-* Desing -
+* Purpose- Thanos was created to extend Prometheus by providing multi-cluster monitoring and long-term storage. Its main goals are a global query view, unlimited retention and downsampling. VictoriaMetrics began as an alternative long term remote storage TSDB for Prometheus.
 * Architecture- Thanos has a modular system with several components that each have different functions. This system provides functionality. VictoriaMetrics has single node and cluster versions. Victoriametrics provide simplicity and ease of deployment.
 * Storage- Thanos uses TSDB. VictoriaMetrics is morre storage effeicent due to having its own custom storage and compression algorithms.
 *  Query language- Thanos uses PromQL just like Prometheus. VictoriaMetrics uses metricsQl which is baskwards compatible with PromQL.
