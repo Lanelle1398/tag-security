@@ -349,10 +349,18 @@ the same question.
 VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and time series database.
 
 Victoria Metrics, while maintaining a simpler architecture, also includes several core components:
-
+* single-node- All-in-one binary, which is very easy to use and maintain. Single-server-VictoriaMetrics perfectly scales vertically and easily handles millions of metrics/s;
+* cluster- Set of components for building horizontally scalable clusters. This version of Voctoria Metrics has extra components such as VMSelect, VMInsert and VMStorage nodes.
+* vmagent- Data scraper than can pull data from a variety of sources and sends it to Victoria metrics or another remote storage that supports InfluxDB or Prometheus remote write protocol.
+* vmalert- Executes a list of the given alerting or recording rules against configured -datasource.url compatible with Prometheus HTTP API.
+* vmctl- The command line tool provides various useful actions with VictoriaMetrics components. It migrates data feom different TSDBs to Victoria Metrics.
+* vmstorage-
+* vmui-
 Key differences:
 
-Source: https://last9.io/blog/thanos-vs-victoriametrics/
+Sources:
+https://last9.io/blog/thanos-vs-victoriametrics/
+https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html
 <!--###### Mimir
 Grafana Mimir is an open source software project that provides a scalable long-term storage for Prometheus. Some of the core strengths of Grafana Mimir include:
 * Ease of installment and maintenance : Grafana Mimir’s extensive documentation, tutorials, and deployment tooling make it quick to get started. Using its monolithic mode, you can get Grafana Mimir up and running with just one binary and no additional dependencies. Once deployed, the best-practice dashboards, alerts, and runbooks packaged with Grafana Mimir make it easy to monitor the health of the system.
