@@ -358,6 +358,10 @@ Victoria Metrics, while maintaining a simpler architecture, also includes severa
 * vmui- Victoria Metrics' user interface.
   
 Key differences:
+Architecture- Thanos has a modular system with several components that each have different functions. This system provides functionality. VictoriaMetrics has single node and cluster versions. Victoriametrics provide simplicity and ease of deployment.
+
+Storage- Thanos uses TSDB. VictoriaMetrics is morre storage effeicent due to having its own custom storage and compression algorithms.
+
 
 
 Sources:
