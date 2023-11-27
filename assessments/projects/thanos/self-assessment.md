@@ -401,6 +401,7 @@ Targets are discovered via service discovery or static configuration
 Multiple modes of graphing and dashboarding support
 
 Key differences:
+h
 
 
 #### STRIDE modeling
