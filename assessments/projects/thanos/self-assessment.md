@@ -188,17 +188,17 @@ Thanos seeks graduation and is preparing for a security audit.
 ## Security functions and features (WIP)
 
 * Critical.
-* <!-- A listing critical security components of the project with a brief description of their importance.  It is recommended these be used for threat modeling. These are considered critical design elements that make the product itself secure and are not configurable.  Projects are encouraged to track these as primary impact items for changes to the project. -->
+ <!-- A listing critical security components of the project with a brief description of their importance.  It is recommended these be used for threat modeling. These are considered critical design elements that make the product itself secure and are not configurable.  Projects are encouraged to track these as primary impact items for changes to the project. -->
 * Components communicate securely with TLS. This prevents unauthorized modification of data in transit.
 * High availability and fault tolerance is achieved by distributing Prometheus data across multiple instances and using object storage for long-term storage. Because of redundancy in multiple components, if one part of the system fails, the user can still perform certain actions.
-* Thanos uses Prometheus built in authentication and authorization mechanisms. 
+* Thanos uses Prometheus built in authentication and authorization mechanisms. Users can leverage Prometheus to implement customizable authentication and authroization methods to meet their security needs.
 
-* Security Relevant.  A listing of security relevant components of the project with
+* Security Relevant.
+<!-- A listing of security relevant components of the project with
   brief description.  These are considered important to enhance the overall security of
 the project, such as deployment configurations, settings, etc.  These should also be
-included in threat modeling.
+included in threat modeling. -->
 
-<!--
 Major source ( https://thanos.io/tip/thanos/security.md/ & https://www.bestpractices.dev/en/projects/3048#security)
 
 The Thanos project, while primarily focused on enhancing Prometheus's capabilities in monitoring and data storage, also incorporates several security-related functions and features:
