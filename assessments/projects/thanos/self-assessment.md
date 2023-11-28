@@ -37,7 +37,7 @@ A table at the top for quick reference information, later used for indexing.
 | Software | https://github.com/thanos-io/thanos  |
 | Security Provider | No. |
 | Languages | Golang |
-| SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. |
+| SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. [Link to SBOM](/assessments/projects/thanos/Thanos_SBOM_cyclonedx.bom.json) |
 | | |
 
 ### Security links
