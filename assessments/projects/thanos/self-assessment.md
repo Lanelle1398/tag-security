@@ -43,12 +43,15 @@ A table at the top for quick reference information, later used for indexing.
 
 ### Security links
 
-Provide the list of links to existing security documentation for the project. You may
-use the table below as an example:
+The list of links to existing security relevant documentation for the project:
 | Doc | url |
 | -- | -- |
 | Security file | <https://github.com/thanos-io/thanos/blob/main/SECURITY.md> |
-| Default and optional configs |  |
+| Multitenancy | <https://thanos.io/tip/operating/multi-tenancy.md/> |
+| TLS for cross cluster communication | <https://thanos.io/tip/operating/cross-cluster-tls-communication.md/> |
+| HTTPS and Basic authentication | <https://thanos.io/tip/operating/https.md/> |
+| Audit logging (queries) (WIP) | <https://thanos.io/tip/proposals-done/202005-query-logging.md/> |
+| mTLS for gRPC storeAPIs (roadmap) | <https://thanos.io/tip/proposals-accepted/202106-automated-per-endpoint-mtls.md/> |
 
 ## Overview
 
