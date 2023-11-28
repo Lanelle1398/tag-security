@@ -193,6 +193,7 @@ Critical:
 * Components communicate securely with TLS. This prevents unauthorized modification of data in transit.
 * High availability and fault tolerance is achieved by distributing Prometheus data across multiple instances and using object storage for long-term storage. Because of redundancy in multiple components, if one part of the system fails, the user can still perform certain actions.
 * Thanos uses Prometheus built in authentication and authorization mechanisms. Users can leverage Prometheus to implement customizable authentication and authroization methods to meet their security needs.
+* Thanos uses Prometheus Role Based Action control system. This means that access to certain functionalities can be prevented based on a user's role and permission.
 
 Security Relevant:
 
