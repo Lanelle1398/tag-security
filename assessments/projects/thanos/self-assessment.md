@@ -449,7 +449,7 @@ Tampering with data
 * Threat: Metrics can be tampered
 * Mitigations:
    * TLS is used by default for communication with all object storages, providing an additional layer of security for data in transit.
-  * Querier must check the integrity of the metrics  received from object storage Plane before delivering it back to the user.
+  * Querier must check the integrity of the metrics  received from object storage before delivering it back to the user.
   * If the integrity check fails then the metrics must be discarded and logged as a security event.
 
 
