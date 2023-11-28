@@ -490,7 +490,11 @@ Key differences:
    *  Query Optimization: To improve query speed, Thanos downsamples historical data. Cortex, on the other hand uses optimization techniques like batch iterators, caching indexes, HTTP response compression etc.
    * Data Format: With Thanos, data can be read and written as Prometheus TSDB blocks. Cortex is migrating individual Prometheus chunks to object storage for better scalability.
 
- Source: [Thanos vs Cortex](https://last9.io/blog/thanos-vs-cortex/#:~:text=Thanos%20Querier%20can%20pull%20data,deduplicated%20into%20a%20single%20copy).
+ Source: 
+ 
+ [Thanos vs Cortex](https://last9.io/blog/thanos-vs-cortex/#:~:text=Thanos%20Querier%20can%20pull%20data,deduplicated%20into%20a%20single%20copy).
+
+ [Cortex documentation](https://github.com/cortexproject/cortex)
 
 ###### Prometheus
 
@@ -515,7 +519,10 @@ Key differences:
 * Recording rules: Prometheus uses recording rules to pre-calculate and store frequently used queries as a new time series. This helps to optimize query perfromance and simplify  complicated calculations. Thanos inherits this feature from Prometheus.
 * Downsampling: Prometheus supports downsampling which involves combining data over large time intervals to minimize storage needs and simplify query processing. Thanos inherits this capability from Prometheus.
 
-Source: [Prometheus vs. Thanos](https://last9.io/blog/prometheus-vs-thanos/)
+Source: 
+[Prometheus vs. Thanos](https://last9.io/blog/prometheus-vs-thanos/)
+
+[Prometheus documentation](https://github.com/prometheus/prometheus)
 
 
 #### STRIDE modeling
