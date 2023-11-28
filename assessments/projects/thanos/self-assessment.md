@@ -183,10 +183,11 @@ In addition Thanos Ruler could be deployed which would add another source for th
 ###### Simplified Step-by-step description of how Thanos works:
 * The user wants metrics.
 * The querier initiates a query to gather the metric data.
-* Metric data is pulled from the Thanos store and Thanos sidecar. The querier performs mandatory operations such filtering, aggregation and compactipn.
+* Metric data is pulled from the Thanos store and Thanos sidecar. The querier performs mandatory operations such filtering, aggregation and compaction.
+    * The Thanos query uses the gRPC protocol to talk to Thanos store.
 * The metrics are delivered to the user.
 
-> Similar actions are done in push mode, except receive takes the sidecar's place.
+> Similar actions are done in push mode, except receive takes the place of the sidecar.
 
 ###### Deployment:
 * Set up a Prometheus server instance.
@@ -386,7 +387,7 @@ Vulnerability Response Process
 
 Incident Response
 > * Triage and Confirmation: The team performs an initial assessment to confirm the validity of the reported vulnerability or security incident. [github issues]
-> * Notification: They are on thanos.io / @ThanosMetrics / github repo
+> * Notification: All updates are shared on these social media channels: thanos.io / @ThanosMetrics / github repo
 > * Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software.  
     SOURCE: <https://github.com/thanos-io/thanos/security>
 
