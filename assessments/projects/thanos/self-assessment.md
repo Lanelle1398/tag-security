@@ -433,9 +433,23 @@ Key differences:
 * Recording rules: Prometheus uses recording rules to pre-calculate and store frequently used queries as a new time series. This helps to optimize query perfromance and simplify  complicated calculations. Thanos inherits this feature from Prometheus.
 * Downsampling: Prometheus supports downsampling which involves combining data over large time intervals to minimize storage needs and simplify query processing. Thanos inherits this capability from Prometheus.
 
-
- Source: https://last9.io/blog/prometheus-vs-thanos/
+Source: https://last9.io/blog/prometheus-vs-thanos/
 
 
 #### STRIDE modeling
+Spoofing Identity
+* Threat : An unknown source pretends to be a trusted source to gain access to Thanos components.
+* Mitigation:
+  * Authentication mechanisms for each component.
+  *  Frequently monitor authentication logs.
+  * Access control policies to prevent unauthorized access to the system.
+
+
+Tampering with data
+* Threat: Metrics can be tampered
+* Mitigations:
+   * TLS is used by default for communication with all object storages, providing an additional layer of security for data in transit.
+  * Querier must check the integrity of the metrics  received from object storage Plane before delivering it back to the user.
+If the integrity check fails then the metrics must be discarded and logged as a security event.
+
 
