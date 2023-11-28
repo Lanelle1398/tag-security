@@ -168,10 +168,13 @@ be in scope (e.g., Flibble does not intend to stop a party with a key from stori
 an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
  the servers) -->
 
-* Security: Although securing metrics is important for the sake of data privacy & integrity, security is not the reason for existence for the Thanos project.The project primarily aims to enable users to analyze historical data retrospectively, especially data that may not have been stored by Prometheus initially. This can be useful for purposes such as diagnosing security breaches or utilizing metric-like data over time. Additionally, Thanos aims to be a lightweight, highly available program to store metrics and crunch numbers, so it would be misinformed to assume data security is the priority in all components of their project. (i.e. lack of encryption of locally stored data).
+* Security:
+    * Although securing metrics is important for the sake of data privacy & integrity, security is not the reason for existence for the Thanos project.The project primarily aims to enable users to analyze historical data retrospectively, especially data that may not have been stored by Prometheus initially. This can be useful for purposes such as diagnosing security breaches or utilizing metric-like data over time. Additionally, Thanos aims to be a lightweight, highly available program to store metrics and crunch numbers, so it would be misinformed to assume data security is the priority in all components of their project. (i.e. lack of encryption of locally stored data).
+    * Client-side encryption for local storage: Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. 
+    * Authorization or TLS  for Thanos server HTTP APIs is not yet specified.
 * Real-time monitoring and altering: Thanos does not provide real time monitoring. It simply extends Prometheus by providing long term, scalable storage and querying capabilities. For real time monitoring results, you have to use Prometheus directly. While Thanos integrates Prometheus, it does not contain built in alerting mechanisms.
-* Client-side encryption for local storage: Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. 
-* Authorization or TLS  for Thanos server HTTP APIs is not yet specified.
+* Thanos does not restrict a user from storing extremely large amounts of data, even when its costly for Thanos or challenges server capacity.
+* Thanos does not guarantee that data never gets lost or is always consistent across all replicas and remote storage systems.
 
 
 
