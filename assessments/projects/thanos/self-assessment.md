@@ -466,8 +466,7 @@ Repudiation
 * Threat: Repudiation of actions perfomed on the Thanos system
 * Mitigations:
   * Implement centralized audit collection and alerting for any suspicious activity or security events.
-  * Implement auditing for actions performed by Thanos users and admin.
-  * Audit logging of components.
+  * Implement auditing for actions performed by Thanos users and admin. Also, implement audit logging of components.
     
 Information Disclosure
 * Threat: Unauthorized access to sensitive information.
@@ -476,7 +475,9 @@ Information Disclosure
    * Implementation of proper access control mechanisms to restrict access to sensitive information.
 
 Denial of Service
+
 A malicious attacker can flood the network infrastructure, exhaust resources or conduct a distributed denial of service attack.
+
 * Threat: Disrupt the availability of Thanos services.
 * Mitigation:
    * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources.
