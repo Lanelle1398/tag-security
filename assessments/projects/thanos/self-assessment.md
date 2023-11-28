@@ -467,6 +467,7 @@ Information Disclosure
    * Implementation of proper access control mechanisms to restrict access to sensitive information.
 
 Denial of Service
+An attacker can flood 
 * Threat: Disrupt the availability of Thanos services.
 * Mitigation:
    * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources.
