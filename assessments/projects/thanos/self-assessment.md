@@ -183,10 +183,28 @@ In addition Thanos Ruler could be deployed which would add another source for th
 ###### Simplified Step-by-step description of how Thanos works:
 * The user wants metrics.
 * The querier initiates a query to gather the metric data.
-* Metric data is pullrd from the Thanos store and Thanos sidecar. The querier performs mandatory operations such filtering, aggregation and compactipn.
+* Metric data is pulled from the Thanos store and Thanos sidecar. The querier performs mandatory operations such filtering, aggregation and compactipn.
 * The metrics are delivered to the user.
 
-Source: <https://thanos.io/tip/thanos/maintainers.md>
+###### Deployment:
+* Set up a Prometheus server instance.
+* Have sidecar run alongside the Prometheus instance.
+* Give the querier the ability to communicate with sidecar.
+* Deploy Thanos store to fetch metrics stored in long term storage.
+* Set up compactor for compaction and downsampling.
+* Configure node exporter container.
+* Use Grafana for visualization.
+
+Sources:
+
+[Maintaners.md](https://thanos.io/tip/thanos/maintainers.md)
+
+[Scaling Prometheus](https://blog.purestorage.com/purely-technical/scaling-prometheus-with-thanos-for-long-term-retention/)
+
+[Monitoring with Prometheus and Grafana](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6)]
+
+[Prometheus and Thanos](https://medium.com/@sagivsza/prometheus-and-thanos-an-ultimate-alliance-for-scalable-metrics-9a1cb911abf5)
+
 
 
 ### Goals
