@@ -202,6 +202,7 @@ Limitations:
 * Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
 
 Sources:  
+
 [Security.MD](https://github.com/thanos-io/thanos/blob/main/SECURITY.md)
 
 [Best Practices](https://www.bestpractices.dev/en/projects/3048#security)
