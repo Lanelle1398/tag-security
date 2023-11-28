@@ -479,9 +479,13 @@ An attacker can flood
    * Monitor systems for a potential Denial of Service attack.
 
 Elevation of Privilege:
-* Threat:
+* Threat: An attacker can gain access to private data or perform actions only meant for certain trusted users.
 * Mitigation:
-  
+   * Secure communications via TLS encryption
+   * Thanos piggy-backs off of Prometheus's authentication and authorization mechanisms.
+   * Prometheus operates with minimum level of access rights necessary to function.
+   * Thanos can be configured to minimize its access so that damage is limited even if compromised.
+   * Prometheus is a monitoring tool, so it can be used to raise alerts upon suspicious activity that may coincide with attempts at privelege escalation within Thanos as well.
 
 
 
