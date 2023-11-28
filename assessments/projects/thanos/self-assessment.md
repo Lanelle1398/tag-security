@@ -492,7 +492,7 @@ Key differences:
 
  Source: 
  
- [Thanos vs Cortex](https://last9.io/blog/thanos-vs-cortex/#:~:text=Thanos%20Querier%20can%20pull%20data,deduplicated%20into%20a%20single%20copy).
+ [Thanos vs Cortex](https://last9.io/blog/thanos-vs-cortex/#:~:text=Thanos%20Querier%20can%20pull%20data,deduplicated%20into%20a%20single%20copy)
 
  [Cortex documentation](https://github.com/cortexproject/cortex)
 
@@ -520,6 +520,7 @@ Key differences:
 * Downsampling: Prometheus supports downsampling which involves combining data over large time intervals to minimize storage needs and simplify query processing. Thanos inherits this capability from Prometheus.
 
 Source: 
+
 [Prometheus vs. Thanos](https://last9.io/blog/prometheus-vs-thanos/)
 
 [Prometheus documentation](https://github.com/prometheus/prometheus)
