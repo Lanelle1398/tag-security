@@ -97,29 +97,84 @@ between the database and front-end is not relevant.
 The means by which actors are isolated should also be described, as this is often
 what prevents an attacker from moving laterally after a compromise.-->
 * Queriers: Stateless and horizontally scalable instances responsible for executing PromQL queries.
-* Store Nodes: Act as gateways to block data stored in object storage.
-* Rule Nodes: Evaluate recording and alerting rules against data in Thanos.
-* Metric Sources: Components that produce or collect metric data, such as the Prometheus sidecar and rule nodes.
-* Users: Individuals or organizations utilizing Thanos for their metrics storage and querying needs
+* Store Gateway: Act as gateways to block data stored in object storage.
+* Rule/Ruler: Evaluate recording and alerting rules against data in Thanos.
+* Metric Sources: Components that produce or collect metric data, such as Prometheus, Sidecar and Ruler.
+* Users: Individuals or organizations utilizing Thanos for their metrics storage and querying needs. These can be individuals running direct queries on Thanos or other PromQL compatible tools for visualisation of the metrics provided by Thanos.
+* Sidecar: Deployed along with Prometheus to fetch its metrics.
+* Receive: Deployed as a separate component which can receive metrics from Prometheus.
+* Compactor: The thanos compact command applies the compaction procedure of the Prometheus 2.0 storage engine to block data stored in object storage and is also responsible for downsampling of data.
+* Object Storage: cheaper storage location for longer retention of metrics
 
 Two types of deployment strategies are generally used:
 1. Deployment with Thanos Sidecar for Kubernetes
    ![Thanos High Level Arch Diagram (Sidecar)](res/thanos-high-level-arch-diagram-sidecar.png)
-   
+
 3. Deployment via Receive in order to scale out or integrate with other remote write-compatible sources:
    ![Thanos High Level Arch Diagram (Receive)](res/thanos-high-level-arch-diagram-receive.png)
 
-### Actions (WIP)
-These are the steps that a project performs in order to provide some service
-or functionality.  These steps are performed by different actors in the system.
-Note, that an action need not be overly descriptive at the function call level.
-It is sufficient to focus on the security checks performed, use of sensitive
-data, and interactions between actors to perform an action.
+### Actions
+<!-- These are the steps that a project performs in order to provide some service -->
+<!-- or functionality.  These steps are performed by different actors in the system. -->
+<!-- Note, that an action need not be overly descriptive at the function call level. -->
+<!-- It is sufficient to focus on the security checks performed, use of sensitive -->
+<!-- data, and interactions between actors to perform an action. -->
+<!---->
+<!-- For example, the access server receives the client request, checks the format, -->
+<!-- validates that the request corresponds to a file the client is authorized to -->
+<!-- access, and then returns a token to the client.  The client then transmits that -->
+<!-- token to the file server, which, after confirming its validity, returns the file. -->
 
-For example, the access server receives the client request, checks the format,
-validates that the request corresponds to a file the client is authorized to
-access, and then returns a token to the client.  The client then transmits that
-token to the file server, which, after confirming its validity, returns the file.
+Metric Sources
+Primarily Prometheus is used as the metrics source with Thanos.
+The targets whose metrics have to be collected are configured in the Prometheus config file.
+Prometheus scrapes these endpoints at regular intervals and stores metrics locally in persistent storage.
+
+
+User
+Individual/Tool (like Grafana) sends a request to Thanos Querier for viewing the metrics.
+
+Sidecar
+It is deployed along with the Prometheus container in the same pod.
+It queries Prometheus to fetch metrics using remote-read APIs of Prometheus
+It also requires access to the admin API of Prometheus to fetch the external labels.
+If shipper feature of sidecar is used (for longer retention of Prometheus data in relatively cheaper object storage):
+* Sidecar has access to the Prometheus TSDB (Time series Databse).
+* It ships the blocks to the object storage (It has access to the credentials for the object storage)
+Optinally it can also watch for changes to the Prometheus configuration file and call the Prometheus reload API to reload its configuration in case of any changes.
+
+Receive
+The Receive component exposes Prometheus compatible remote-write API that can be used by Prometheus to send its data.
+The Receive component is used in egress only environments (where Prometheus APIs can't be accessed using Sidecar).
+Similar to Sidecar it also has a shipper component which ships data to the object storage.
+
+Store Gateway
+It exposes StoreAPI which can be used by the querier to fetch the historical metrics from the object storage.
+
+Querier
+It takes queries from the user and translates it to StoreAPI requests for sidecar+prometheus, receive or the store gateway.
+It exposes the same API as Prometheus which takes queries in the PromQL (Prometheus Query Language). This makes it possible for the User to be a human running an individual query or a tool like Grafana that can use PromQL queries for different visualisations.
+There is no authentication or authorization done by the querier.
+
+There are two types of deployment models as listed in Actors section:
+
+**Pull mode**
+In pull mode (Sidecar) the workflow is as follows:
+![workflow1](res/workflow1.excalidraw.png)
+
+**Push mode**
+In push mode (Receive) the workflow is as follows:
+![workflow2](res/workflow2.excalidraw.png)
+
+The above two deployment models can be used together to combine different environments where both these strategies are required.
+
+There are other independent workflows that are running:
+Compactor -> Object Storage
+The compactor downsamples and aggregates data stored in object storage for faster retrieval of historical data.
+Compactor is the only component which should have delete rights to the object storage.
+
+In addition Thanos Ruler could be deployed which would add another source for the querier to fetch from using the storeAPI exposed by Ruler.
+
 
 ### Goals
 <!-- The intended goals of the projects including the security guarantees the project
@@ -128,7 +183,7 @@ key to change data it stores).-->
 General:
 * Global Query View: Scaling Prometheus setups to allow querying across multiple servers and clusters.
 * Unlimited Retention: Storing metrics for an unlimited time in the chosen object storage.
-* Downsampling & Compaction: Downsampling historical data for faster query execution and configuring complex retention policies​
+* Downsampling & Compaction: Downsampling historical data for faster query execution and configuring complex retention policies
 
 Security:
 
@@ -139,11 +194,11 @@ Data Handling and Privacy: Thanos does not log or use instrumentation to record 
 * Use of Cryptography Tools: Whenever cryptographic tools are utilized, Thanos relies on free, libre, open-source software (FLOSS) and standard libraries, such as the official Go cryptography library. This ensures the use of well-vetted and secure cryptographic methods.
 * Transport Layer Security (TLS): TLS is used by default for communication with all object storages, providing an additional layer of security for data in transit.
 * Secured delivery against man-in-the-middle (MITM) attacks
-* Software Updates and Reliability: The team uses stable versions of Go for building their images and binaries and updates to new versions as soon as they are released. This practice helps in maintaining the security and reliability of the software. 
+* Software Updates and Reliability: The team uses stable versions of Go for building their images and binaries and updates to new versions as soon as they are released. This practice helps in maintaining the security and reliability of the software.
 
 Limitations:
 * Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
-  
+
 Sources:
 https://github.com/thanos-io/thanos/blob/main/SECURITY.md
 https://www.bestpractices.dev/en/projects/3048#security
@@ -162,7 +217,7 @@ https://www.bestpractices.dev/en/projects/3048#security
 * Easy integration points for custom metric providers -->
 
 
-### Non-goals 
+### Non-goals
 <!--*Non-goals that a reasonable reader of the project’s literature could believe may
 be in scope (e.g., Flibble does not intend to stop a party with a key from storing
 an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
@@ -170,7 +225,7 @@ an arbitrarily large amount of data, possibly incurring financial cost or overwh
 
 * Security:
     * Although securing metrics is important for the sake of data privacy & integrity, security is not the reason for existence for the Thanos project.The project primarily aims to enable users to analyze historical data retrospectively, especially data that may not have been stored by Prometheus initially. This can be useful for purposes such as diagnosing security breaches or utilizing metric-like data over time. Additionally, Thanos aims to be a lightweight, highly available program to store metrics and crunch numbers, so it would be misinformed to assume data security is the priority in all components of their project. (i.e. lack of encryption of locally stored data).
-    * Client-side encryption for local storage: Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. 
+    * Client-side encryption for local storage: Thanos does not support encrypting metrics in local storage or client-side encryption for object storage.
     * Authorization or TLS  for Thanos server HTTP APIs is not yet specified.
 * Real-time monitoring and altering: Thanos does not provide real time monitoring. It simply extends Prometheus by providing long term, scalable storage and querying capabilities. For real time monitoring results, you have to use Prometheus directly. While Thanos integrates Prometheus, it does not contain built in alerting mechanisms.
 * Thanos does not restrict a user from storing extremely large amounts of data, even when its costly for Thanos or challenges server capacity.
@@ -203,7 +258,7 @@ Thanos seeks graduation and is preparing for a security audit.
 
 Critical:
 A listing of critical security components of the project with a brief description of their importance.  It is recommended these be used for threat modeling. These are considered critical design elements that make the product itself secure and are not configurable.  Projects are encouraged to track these as primary impact items for changes to the project.
- 
+
 * Components communicate securely with TLS. This prevents unauthorized modification of data in transit.
 * High availability and fault tolerance is achieved by distributing Prometheus data across multiple instances and using object storage for long-term storage. Because of redundancy in multiple components, if one part of the system fails, the user can still perform certain actions.
 * Thanos uses Prometheus built in authentication and authorization mechanisms. Users can leverage Prometheus to implement customizable authentication and authorization methods to meet their security needs.
@@ -245,9 +300,9 @@ vulnerabilities, etc.
 virtualization for 80% of cloud users. So, our small number of "users" actually
 represents very wide usage across the ecosystem since every virtual instance uses
 Flibber encryption by default.)-->
-Signing Work - DCO Process: Contributors agree to the Developer Certificate of Origin (DCO) and must sign off their commits with their name and email. This ensures the legal right to make contributions​​.
-Testing and Formatting: Various make commands are used to ensure the code and documentation adhere to standards. This includes make docs, make changed-docs, make check-docs, and make format for code formatting​​.
-Testing Procedures: Thanos includes several testing commands such as make test for Go unit tests, make test-local excluding tests for object storage integrations, and make test-e2e for end-to-end docker-based tests​​.
+Signing Work - DCO Process: Contributors agree to the Developer Certificate of Origin (DCO) and must sign off their commits with their name and email. This ensures the legal right to make contributions.
+Testing and Formatting: Various make commands are used to ensure the code and documentation adhere to standards. This includes make docs, make changed-docs, make check-docs, and make format for code formatting.
+Testing Procedures: Thanos includes several testing commands such as make test for Go unit tests, make test-local excluding tests for object storage integrations, and make test-e2e for end-to-end docker-based tests.
 
 #### Development Pipeline:
 
@@ -255,14 +310,14 @@ Testing Procedures: Thanos includes several testing commands such as make test f
 Testing and Assessment: The code undergoes various tests including unit tests, local tests excluding certain integrations, and end-to-end tests.
 * Code Review: While specific information on the number of reviewers required before merging isn't explicitly detailed, the use of GitHub for project hosting implies a collaborative review process. [we can see from approved PR’s that a good number of people review the PR before it merges]
 * Automated Checks: Automated formatting checks and tests are part of the development process, ensuring code quality and standards.
-  
+
 #### Communication Channels:
 
 * Internal Communication: Team members use tools like GitHub and Slack for internal communication, with dedicated channels for development discussions.
 * Inbound Communication: Users or prospective users can interact with the team via the #thanos and #thanos-dev channels on Slack​​.
-* Outbound Communication: Updates and announcements are shared on social media platforms like Twitter (@ThanosMetrics). The Thanos Community Office Hours serve as a forum for updates and discussions​​.
+* Outbound Communication: Updates and announcements are shared on social media platforms like Twitter (@ThanosMetrics). The Thanos Community Office Hours serve as a forum for updates and discussions.
 * Ecosystem Integration: Thanos, as an extension of Prometheus, fits into the cloud-native ecosystem by enhancing monitoring and long-term data storage. Its integration with Prometheus makes it a key component in the observability stack for cloud users, indirectly impacting a wide range of users relying on cloud services.
-  
+
 Source : https://thanos.io/tip/contributing/contributing.md/
 
 
@@ -279,19 +334,19 @@ outline should discuss communication methods/strategies.
 patching/update availability.-->
 Responsible Disclosures Process
 
-> * Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling​​. 
- > *  Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com​​.
- > *  Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive​​.
+> * Security Policy Awareness: Thanos team acknowledges the importance of security and strives to avoid security concerns and sensitive data handling.
+> *  Vulnerability Reporting: Suspected security issues or vulnerabilities should be reported privately via the Thanos Team email address: thanos-io@googlegroups.com.
+> *  Data Sensitivity: Metric data is considered sensitive and important, while external labels and query API parameters are less sensitive.
 
 Vulnerability Response Process
-  > * Responsibility: The Thanos team is responsible for responding to security vulnerability reports.
-  > * Reporting Process: Vulnerabilities are reported via email to the Thanos team thanos-io@googlegroups.com. The team likely follows internal procedures for validating and addressing these reports, although specific details of this process are not publicly documented.
-  > * Response Actions: The team investigates and works to resolve the reported vulnerabilities.
+> * Responsibility: The Thanos team is responsible for responding to security vulnerability reports.
+> * Reporting Process: Vulnerabilities are reported via email to the Thanos team thanos-io@googlegroups.com. The team likely follows internal procedures for validating and addressing these reports, although specific details of this process are not publicly documented.
+> * Response Actions: The team investigates and works to resolve the reported vulnerabilities.
 
 Incident Response
 > * Triage and Confirmation: The team performs an initial assessment to confirm the validity of the reported vulnerability or security incident. [github issues]
 > * Notification: They are on thanos.io / @ThanosMetrics / github repo
-> * Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software​​.
+> * Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software.
     SOURCE : [https://github.com/thanos-io/thanos/security]
 
 ## Appendix (WIP)
@@ -301,19 +356,19 @@ Incident Response
 There are no vulnerabilites disclosed for the Thanos project, but still the project is impacted by the vulnerabilites in the underlying frameworks and tools it uses (for instance vulnerabilites in Golang). All Thanos project security related issues (both fixes and enhancements) are not spearate from the other Github issues.
 
 #### [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).
-  
+
 The Thanos project has achieved the passing level criteria and has also attained a silver badge in Open Source Security Foundation (OpenSSF) best practices badge.
- [Thanos openssf best practies](https://www.bestpractices.dev/en/projects/3048).  
+ [Thanos openssf best practies](https://www.bestpractices.dev/en/projects/3048).
 
   <!--Best Practices. A brief discussion of where the project is at
   with respect to CII best practices and what it would need to
   achieve the badge.-->
-  
-#### Case Studies. 
+
+#### Case Studies.
 Many organisations have adopted Thanos and are using our project in production [[adopters-list](https://github.com/thanos-io/thanos/blob/main/website/data/adopters.yml)]. Here are few Case studies:
 
 
-###### Aiven 
+###### Aiven
 Aiven is a cloud-native data infrastructure platform that provides fully managed open source database, streaming, and analytics services on 11 clouds and over 150 regions. Aiven offers open source products including PostgreSQL, MySQL, ClickHouse, Cassandra, M3, InfluxDB, along with streaming platforms such as Kafka and Flink. Aiven has a major investment in upstream contributions not altering the true open source solutions which are offered making Aiven the open source data platform for everyone. Aiven also provide ease of use, reliability, scalability, security, and cost-effectiveness for their users.
 
 Initially, Aiven used InfluxDB but it was unable to handle their scale of fleet and variability of cloud infrasturcture.  M3 fit the bill, architecturally, at the time.  Fast forward to 2022, with the changes at Uber and Chronosphere , contibutions were no longer being made to M3DB.  M3DB was missing a lot of new functionality which were introduced to Prometheus over time. As a result, Aiven had to look for a replacement project.
@@ -348,7 +403,7 @@ To read more, see source [2022-09-08-thanos-at-medallia.md](https://github.com/t
 
 
 
-#### Related Projects / Vendors. 
+#### Related Projects / Vendors.
 Reflect on times prospective users have asked about the differences between your project and projectX. Reviewers will have
 the same question.
 
@@ -363,7 +418,7 @@ Victoria Metrics, while maintaining a simpler architecture, also includes severa
 * vmctl- The command line tool provides various useful actions with VictoriaMetrics components. It migrates data from different Timescale Dtabases (TSDBs) to Victoria Metrics.
 * vmstorage- Where data is stored.
 * vmui- Victoria Metrics' user interface.
-  
+
 Key differences:
 * Purpose- Thanos was created to extend Prometheus by providing multi-cluster monitoring and long-term storage. Its main goals are a global query view, unlimited retention and downsampling. VictoriaMetrics began as an alternative long term remote storage TSDB for Prometheus.
 * Architecture- Thanos has a modular system with several components that each have different functions. This system provides functionality. VictoriaMetrics has single node and cluster versions. Victoriametrics provide simplicity and ease of deployment.
@@ -382,8 +437,8 @@ https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html
 <!--###### Mimir
 Grafana Mimir is an open source software project that provides a scalable long-term storage for Prometheus. Some of the core strengths of Grafana Mimir include:
 * Ease of installment and maintenance : Grafana Mimir’s extensive documentation, tutorials, and deployment tooling make it quick to get started. Using its monolithic mode, you can get Grafana Mimir up and running with just one binary and no additional dependencies. Once deployed, the best-practice dashboards, alerts, and runbooks packaged with Grafana Mimir make it easy to monitor the health of the system.
-* Massive scalability: You can run Grafana Mimir's horizontally-scalable architecture across multiple machines, resulting in the ability to process orders of magnitude more time series than a single Prometheus instance. 
-* Global view of metrics: Grafana Mimir enables you to run queries that aggregate series from multiple Prometheus instances, giving you a global view of your systems. 
+* Massive scalability: You can run Grafana Mimir's horizontally-scalable architecture across multiple machines, resulting in the ability to process orders of magnitude more time series than a single Prometheus instance.
+* Global view of metrics: Grafana Mimir enables you to run queries that aggregate series from multiple Prometheus instances, giving you a global view of your systems.
 * Cheap, durable metric storage: Grafana Mimir uses object storage for long-term data storage, allowing it to take advantage of this ubiquitous, cost-effective, high-durability technology. It is compatible with multiple object store implementations, including AWS S3, Google Cloud Storage, Azure Blob Storage, OpenStack Swift, as well as any S3-compatible object storage.
 * High availability: Grafana Mimir replicates incoming metrics, ensuring that no data is lost in the event of machine failure. Its horizontally scalable architecture also means that it can be restarted, upgraded, or downgraded with zero downtime, which means no interruptions to metrics ingestion or querying.
 * Natively multi-tenant: Grafana Mimir’s multi-tenant architecture enables you to isolate data and queries from independent teams or business units, making it possible for these groups to share the same cluster.
@@ -402,7 +457,7 @@ Cortex is a  horizontally scalable, highly available, multi-tenant, long term st
 Key differences:
 * Design:
   * Cortex: A horizontally scalable, highly available, multi-tenant, long term storage built on top of Prometheus. Cortex can run across multiple machines, allowing metrics from multiple Prometheus servers to be sent to a single Cortex cluster for a global view of the data.
-  * Thanos: Thanos components can be set up into a Prometheus setup that allows reliable metrics, simple operations and long term storage capbilities. 
+  * Thanos: Thanos components can be set up into a Prometheus setup that allows reliable metrics, simple operations and long term storage capbilities.
   * Basically Cortex is a ready to use solution that gives you a complete view of the solution. Thanos does something similar but it gives you the flexibility to design and configure each part of your Prometheus server to meet your specific needs.
 
 * Rollout
@@ -412,7 +467,7 @@ Key differences:
 * Storage
    * Cortex: To store and query time series data, block storage (based on Prometheus TSDB) is used. Can also be configured to use local storage.
    * Thanos: Metrics stored in configurable object storage clients.
-    
+
 * Features
     *  Global Querying View: Thanos reuses existing Prometheus deployment servers to achieve a global querying view, while Cortex needs a separate central Cortex cluster and storage backend.
     *  Deduplication and Merging of Metrics: * Thanos querier reads from multiple replicas and merges the metrics collected from each pair into a single result. Cortex uses a push-based model. In this model, Cortex elects a leader replica for each Prometheus cluster and drops samples pushed by the other member in the pair. So technically, only samples form a single replica are accepted.
@@ -470,7 +525,7 @@ Repudiation
 * Mitigations:
   * Implement centralized audit collection and alerting for any suspicious activity or security events.
   * Implement auditing for actions performed by Thanos users and admin. Also, implement audit logging of components.
-    
+
 Information Disclosure
 * Threat: Unauthorized access to sensitive information.
 * Mitigation:

@@ -17,4 +17,4 @@ He is a [Technical Lead](https://github.com/cncf/tag-security/blob/main/governan
 [Security Assessment Facilitator](https://github.com/cncf/tag-security/blob/main/governance/roles.md#facilitation-roles) in CNCF Security TAG.
 
 Questions:
-1.
+1. The admin api of Prometheus has to enabled for Sidecar to get external labels. Is the admin api only used for fetching labels? Do we need complete admin access or is this only for labels?

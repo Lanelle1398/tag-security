@@ -10,7 +10,7 @@ end_of_line = lf
 # The specific rules below are switches in case we need to turn something off
 # i.e. trim_trailing_whitespace on markdown files
 # specific rules for yaml or yml files
-[*.y{a,}ml}]
+[*.y{a,}ml]
 indent_size = 2
 
 # specific rules for markdown
