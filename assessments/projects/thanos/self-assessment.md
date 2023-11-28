@@ -180,7 +180,11 @@ Compactor is the only component which should have delete rights to the object st
 
 In addition Thanos Ruler could be deployed which would add another source for the querier to fetch from using the storeAPI exposed by Ruler.
 
-###### Step-by-step description of hoe it works:
+###### Simplified Step-by-step description of how Thanos works:
+* The user wants metrics.
+* The querier initiates a query to gather the metric data.
+* Metric data is pullrd from the Thanos store and Thanos sidecar. The querier performs mandatory operations such filtering, aggregation and compactipn.
+* The metrics are delivered to the user.
 
 Source: <https://thanos.io/tip/thanos/maintainers.md>
 
