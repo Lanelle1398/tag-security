@@ -128,7 +128,7 @@ key to change data it stores).-->
 General:
 * Global Query View: Scaling Prometheus setups to allow querying across multiple servers and clusters.
 * Unlimited Retention: Storing metrics for an unlimited time in the chosen object storage.
-* Downsampling & Compaction: Downsampling historical data for faster query execution and configuring complex retention policies​​.
+* Downsampling & Compaction: Downsampling historical data for faster query execution and configuring complex retention policies​
 
 Security:
 
