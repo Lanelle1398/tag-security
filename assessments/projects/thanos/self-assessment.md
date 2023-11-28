@@ -492,10 +492,10 @@ Targets are discovered via service discovery or static configuration
 Multiple modes of graphing and dashboarding support
 
 Key differences:
-* Storage & Scalability: Prometheus is designed for short tem monitoring and can't handle large amounts of historical data. Thanos' distributed storage layer allows for scalable, long term storage and query capabilities.
+* Storage & Scalability: Prometheus is designed for short term monitoring and can't handle large amounts of historical data. Thanos' distributed storage layer allows for scalable, long term storage and query capabilities.
 * High availability: Prometheus operates in single server mode. Thanos has a distributed architecture and redundancy in many components . Therefore, even in the face of failures seamless querying and retrieval of data is possible.
 * Querying and analysis: Prometheus uses PromQL for retrieve and analyzing time series data. Thanos extends PromQL to query data from multiple Prometheus instances. This enables cross instance aggregation and federation of metrics.
-* Retention and downsampling: Prometheus uses local disk storage for short term solutions.  Thanos uses object storage solutions like (Amazon S3 or Google cloud Storage) for long-term data retention .
+* Retention and downsampling: Prometheus uses local disk storage for short term solutions.  Thanos uses object storage solutions like (Amazon S3 or Google cloud Storage) for long-term data retention.
 * Integration & Ecosystem: Prometheus has a rich ecosystem with many integrations and exporters available.  This makes it well suited for monitoring kubernetes and cloud-native environments.  Thanos inherits this integration and also provides scalability and long term storage.
 * Recording rules: Prometheus uses recording rules to pre-calculate and store frequently used queries as a new time series. This helps to optimize query perfromance and simplify  complicated calculations. Thanos inherits this feature from Prometheus.
 * Downsampling: Prometheus supports downsampling which involves combining data over large time intervals to minimize storage needs and simplify query processing. Thanos inherits this capability from Prometheus.
@@ -529,7 +529,7 @@ Repudiation
 Information Disclosure
 * Threat: Unauthorized access to sensitive information.
 * Mitigation:
-   * Encryption must be used for storing or transmitting data.
+   * Server-side encryption must be used for storing data, and TLS encryption for data transmission.
    * Implementation of proper access control mechanisms to restrict access to sensitive information.
    * Access of Thanos can be configured/limited to minimize potential attack surface.
 
@@ -549,7 +549,7 @@ Elevation of Privilege:
    <!--* Secure communications via TLS encryption -->
    * Prometheus operates with minimum level of access rights necessary to function (principle of least privilege).
    * Prometheus is a monitoring tool, so it can be used to raise alerts upon suspicious activity that may coincide with attempts at privelege escalation within Thanos as well.
-   * Thanos can be configured to minimize its access so that damage is limited even if compromised.
+   * Thanos can be configured (via config flags) to minimize its access so that damage-potential is limited.
    * Thanos piggy-backs off of Prometheus's authentication and authorization mechanisms.
    * User permissions must be frequently reviewed.
 
