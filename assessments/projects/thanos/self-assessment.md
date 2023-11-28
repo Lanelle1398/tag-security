@@ -278,6 +278,7 @@ included in threat modeling.
 <!--* Compliance.  List any security standards or sub-sections the project is
   already documented as meeting (PCI-DSS, COBIT, ISO, GDPR, etc.). -->
 *  Thanos does not currently document meeting particular compliance standards.
+*  Although not meeting any particular standards, Thanos relies on FLOSS (Free/Libre Open-Source Software) libraries and TLS encryption to ensure robustness and security.
 
 
 
@@ -530,6 +531,7 @@ Information Disclosure
 * Mitigation:
    * Encryption must be used for storing or transmitting data.
    * Implementation of proper access control mechanisms to restrict access to sensitive information.
+   * Access of Thanos can be configured/limited to minimize potential attack surface.
 
 Denial of Service
 
