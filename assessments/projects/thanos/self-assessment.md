@@ -87,6 +87,7 @@ By using Thanos in conjunction with Prometheus, organizations can address the ch
 > It is not necessary to deploy Thanos on a Kuberenetes cluster. For narrowing and focusing the
 scope of this assessment, we will be assuming deployment on Kubernetes clusters.
 
+Source:<https://github.com/thanos-io/thanos>
 ### Actors
 <!-- These are the individual parts of your system that interact to provide the
 desired functionality.  Actors only need to be separate, if they are isolated
