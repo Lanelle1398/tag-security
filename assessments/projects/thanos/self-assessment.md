@@ -185,7 +185,8 @@ In addition Thanos Ruler could be deployed which would add another source for th
 * The querier initiates a query to gather the metric data.
 * Metric data is pulled from the Thanos store and Thanos sidecar. The querier performs mandatory operations such filtering, aggregation and compactipn.
 * The metrics are delivered to the user.
-* >Similar ctions are done in push mode, except receive takes the sidecar's place.
+
+> Similar actions are done in push mode, except receive takes the sidecar's place.
 
 ###### Deployment:
 * Set up a Prometheus server instance.
@@ -202,7 +203,7 @@ Sources:
 
 [Scaling Prometheus](https://blog.purestorage.com/purely-technical/scaling-prometheus-with-thanos-for-long-term-retention/)
 
-[Monitoring with Prometheus and Grafana](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6)]
+[Monitoring with Prometheus and Grafana](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6)
 
 [Prometheus and Thanos](https://medium.com/@sagivsza/prometheus-and-thanos-an-ultimate-alliance-for-scalable-metrics-9a1cb911abf5)
 
