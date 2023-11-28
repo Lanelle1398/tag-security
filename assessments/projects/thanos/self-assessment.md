@@ -187,7 +187,7 @@ to assist in a joint-assessment, necessary for projects under incubation.  Taken
 together, this document and the joint-assessment serve as a cornerstone for if and when
 Thanos seeks graduation and is preparing for a security audit.
 
-## Security functions and features (WIP)
+## Security functions and features
 
 Critical:
 A listing of critical security components of the project with a brief description of their importance.  It is recommended these be used for threat modeling. These are considered critical design elements that make the product itself secure and are not configurable.  Projects are encouraged to track these as primary impact items for changes to the project.
@@ -441,7 +441,7 @@ Spoofing Identity
 * Threat : An unknown source pretends to be a trusted source to gain access to Thanos components.
 * Mitigation:
   * Authentication mechanisms for each component.
-  *  Frequently monitor authentication logs.
+  * Frequently monitor authentication logs.
   * Access control policies to prevent unauthorized access to the system.
 
 
@@ -450,6 +450,12 @@ Tampering with data
 * Mitigations:
    * TLS is used by default for communication with all object storages, providing an additional layer of security for data in transit.
   * Querier must check the integrity of the metrics  received from object storage Plane before delivering it back to the user.
-If the integrity check fails then the metrics must be discarded and logged as a security event.
+  * If the integrity check fails then the metrics must be discarded and logged as a security event.
 
+Repudiation
+* Threat: Repudiation of actions perfomed on the Thanos system
+* Mitigations:
+  * Implement centralized audit collection and alerting for any suspicious activity or security events.
+  * Implement auditing for actions performed by Thanos users and admin.
+  * * Audit logging of components.
 
