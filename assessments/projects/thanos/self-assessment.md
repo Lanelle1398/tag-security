@@ -388,7 +388,7 @@ Incident Response
 > * Patching/Update Availability: The team develops and releases patches or updates to address security issues. Information about supported versions indicates a commitment to maintaining security in newer versions of the software.  
     SOURCE: <https://github.com/thanos-io/thanos/security>
 
-## Appendix (WIP)
+## Appendix
 
 ##### Known Issues Over Time.
 No vulnerabilites have been disclosed in the Thanos project, but the project may still be impacted by vulnerabilities in Thanos' tools and underlying framework (for instance vulnerabilites in Golang). It is important to note that all of Thanos' security-related issues, including both fixes and enhancements, are not treated separately from other issues on the GitHub platform.
@@ -548,7 +548,10 @@ Source:
 [Prometheus documentation](https://github.com/prometheus/prometheus)
 
 
-#### STRIDE modeling
+### Threat modeling
+
+> STRIDE Model
+
 Spoofing Identity
 * Threat : An unknown source pretends to be a trusted source to gain access to Thanos components.
 * Mitigation:
