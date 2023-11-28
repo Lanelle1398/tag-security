@@ -207,6 +207,7 @@ Sources:
 [Monitoring with Prometheus and Grafana](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6)
 
 [Prometheus and Thanos](https://medium.com/@sagivsza/prometheus-and-thanos-an-ultimate-alliance-for-scalable-metrics-9a1cb911abf5)
+[Components](https://github.com/thanos-io/thanos/tree/main/docs/components)
 
 
 
