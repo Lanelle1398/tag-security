@@ -33,7 +33,7 @@ A table at the top for quick reference information, later used for indexing.
 | Software | A link to the software’s repository.  |
 | Security Provider | Yes or No. Is the primary function of the project to support the security of an integrating system?  |
 | Languages | languages the project is written in |
-| SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. [SBOM](/assessments/guide/Thanos_SBOM_cyclonedx.bom.json)
+| SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. [Link to SBOM](/assessments/guide/Thanos_SBOM_cyclonedx.bom.json)
  |
 | | |
 
