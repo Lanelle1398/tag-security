@@ -597,7 +597,7 @@ Elevation of Privilege:
 * Mitigation:
    <!--* Secure communications via TLS encryption -->
    * Prometheus operates with minimum level of access rights necessary to function (principle of least privilege).
-   * Prometheus is a monitoring tool, so it can be used to raise alerts upon suspicious activity that may coincide with attempts at privelege escalation within Thanos as well.
+   * Prometheus is a monitoring tool, so it can be used to raise alerts upon suspicious activity that may coincide with attempts at privilege escalation within Thanos as well.
    * Thanos can be configured (via config flags) to minimize its access so that damage-potential is limited.
    * Thanos piggy-backs off of Prometheus's authentication and authorization mechanisms.
    * User permissions must be frequently reviewed.
