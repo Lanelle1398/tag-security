@@ -471,7 +471,7 @@ Information Disclosure
    * Implementation of proper access control mechanisms to restrict access to sensitive information.
 
 Denial of Service
-An attacker can flood 
+A malicious attacker can flood the network infrastructure, exhaust resources or conduct a distributed denial of service attack.
 * Threat: Disrupt the availability of Thanos services.
 * Mitigation:
    * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources.
