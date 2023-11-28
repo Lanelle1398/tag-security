@@ -184,6 +184,8 @@ General:
 * Global Query View: Scaling Prometheus setups to allow querying across multiple servers and clusters.
 * Unlimited Retention: Storing metrics for an unlimited time in the chosen object storage.
 * Downsampling & Compaction: Downsampling historical data for faster query execution and configuring complex retention policies
+* Prometheus compatible: Allowing you to use the same tools that support the Prometheus Query API.
+
 
 Security:
 
@@ -200,8 +202,11 @@ Limitations:
 * Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
 
 Sources:  
-<https://github.com/thanos-io/thanos/blob/main/SECURITY.md>
-<https://www.bestpractices.dev/en/projects/3048#security>
+[Security.MD](https://github.com/thanos-io/thanos/blob/main/SECURITY.md)
+
+[Best Practices](https://www.bestpractices.dev/en/projects/3048#security)
+
+[Thanos.io](https://thanos.io)
 
 
 <!--* Global query view of metrics.
