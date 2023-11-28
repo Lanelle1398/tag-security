@@ -369,8 +369,7 @@ Incident Response
 ## Appendix (WIP)
 
 ##### Known Issues Over Time.
-
-There are no vulnerabilites disclosed for the Thanos project, but still the project is impacted by the vulnerabilites in the underlying frameworks and tools it uses (for instance vulnerabilites in Golang). All Thanos project security related issues (both fixes and enhancements) are not spearate from the other Github issues.
+No vulnerabilites have been disclosed in the Thanos project, but the project may still be impacted by vulnerabilities in Thanos' tools and underlying framework (for instance vulnerabilites in Golang). It is important to note that all of Thanos' security-related issues, including both fixes and enhancements, are not treated separately from other issues on the GitHub platform.
 
 #### [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).
 
@@ -447,8 +446,8 @@ Key differences:
 * Performance: Both Thanos and VictoriaMetrics handle large workloads seamlessly.  Some prefer Thanos since it has a modular architecture that can be customized for specific setups. Some prefer VictoriaMetrics and believe that it's faster, more resource-effecient and uses CPU and disk space better.
 
 Sources:  
-<https://last9.io/blog/thanos-vs-victoriametrics/>  
-<https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html>
+[Thanos vs. VictoriaMetrics](https://last9.io/blog/thanos-vs-victoriametrics/) 
+[VictoriaMetrics documentation](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html)
 
 <!--###### Mimir
 Grafana Mimir is an open source software project that provides a scalable long-term storage for Prometheus. Some of the core strengths of Grafana Mimir include:
@@ -516,7 +515,7 @@ Key differences:
 * Recording rules: Prometheus uses recording rules to pre-calculate and store frequently used queries as a new time series. This helps to optimize query perfromance and simplify  complicated calculations. Thanos inherits this feature from Prometheus.
 * Downsampling: Prometheus supports downsampling which involves combining data over large time intervals to minimize storage needs and simplify query processing. Thanos inherits this capability from Prometheus.
 
-Source: <https://last9.io/blog/prometheus-vs-thanos/>
+Source: [Prometheus vs. Thanos](https://last9.io/blog/prometheus-vs-thanos/)
 
 
 #### STRIDE modeling
@@ -569,5 +568,7 @@ Elevation of Privilege:
    * Thanos piggy-backs off of Prometheus's authentication and authorization mechanisms.
    * User permissions must be frequently reviewed.
 
-Source: <https://thanos.io/tip/thanos/maintainers.md>
+Sources: 
+[Thanos Maintainers](https://thanos.io/tip/thanos/maintainers.md)
+[Guide](https://github.com/Rana-KV/tag-security/blob/main/assessments/projects/karmada/self-assessment.md#threat-modeling-with-stride)
 
