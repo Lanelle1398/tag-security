@@ -179,6 +179,8 @@ Compactor is the only component which should have delete rights to the object st
 
 In addition Thanos Ruler could be deployed which would add another source for the querier to fetch from using the storeAPI exposed by Ruler.
 
+Source: <https://thanos.io/tip/thanos/maintainers.md>
+
 
 ### Goals
 <!-- The intended goals of the projects including the security guarantees the project
@@ -242,7 +244,7 @@ an arbitrarily large amount of data, possibly incurring financial cost or overwh
 * Thanos does not guarantee that data never gets lost or is always consistent across all replicas and remote storage systems.
 
 
-
+Source: <https://thanos.io/tip/thanos/maintainers.md>
 <!--Other features:
 *Seamless integration with Prometheus .
 *Easy deployment model .
@@ -282,6 +284,7 @@ included in threat modeling.
 * Properly configuring components to ensure a secure deployment.
 * Securing data by setting up robust access control and encryption mechanism on the storage backend.
 
+Source: <https://thanos.io/tip/thanos/maintainers.md>
 
 ## Project compliance
 
@@ -563,5 +566,5 @@ Elevation of Privilege:
    * Thanos piggy-backs off of Prometheus's authentication and authorization mechanisms.
    * User permissions must be frequently reviewed.
 
-
+Source: <https://thanos.io/tip/thanos/maintainers.md>
 
