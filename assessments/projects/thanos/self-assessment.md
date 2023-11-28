@@ -144,7 +144,9 @@ Data Handling and Privacy: Thanos does not log or use instrumentation to record 
 Limitations:
 * Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
   
-  Source: https://github.com/thanos-io/thanos/blob/main/SECURITY.md
+Sources:
+https://github.com/thanos-io/thanos/blob/main/SECURITY.md
+https://www.bestpractices.dev/en/projects/3048#security
 
 
 <!--* Global query view of metrics.
@@ -205,19 +207,6 @@ included in threat modeling. -->
 * Logging and monitoring of Thanos components to detect security breaches.
 * Properly configuring components to ensure a secure deployment.
 * Securing data by setting up robust access control and encryption mechanism on the storage backend.
-
-Major source ( https://thanos.io/tip/thanos/security.md/ & https://www.bestpractices.dev/en/projects/3048#security)
-
-The Thanos project, while primarily focused on enhancing Prometheus's capabilities in monitoring and data storage, also incorporates several security-related functions and features:
-
-* Best Programming Practices: The Thanos team emphasizes the use of best programming practices. This includes heavy testing, end-to-end tests against major object storages, using vetting and static analysis tools for every pull request, and employing secure protocols in their building processes, such as when producing Docker images.
-* Data Handling and Privacy: Thanos does not log or use instrumentation to record data stored in the TSDB (Time Series Database). This approach is crucial for ensuring the privacy and security of stored metrics data.
-* Use of Cryptography Tools: Whenever cryptographic tools are utilized, Thanos relies on free, libre, open-source software (FLOSS) and standard libraries, such as the official Go cryptography library. This ensures the use of well-vetted and secure cryptographic methods.
-* Transport Layer Security (TLS): TLS is used by default for communication with all object storages, providing an additional layer of security for data in transit.
-* Secured delivery against man-in-the-middle (MITM) attacks
-* Software Updates and Reliability: The team uses stable versions of Go for building their images and binaries and updates to new versions as soon as they are released. This practice helps in maintaining the security and reliability of the software.
-Limitations:Currently, Thanos does not support encrypting metrics in local storage or client-side encryption for object storage. It is recommended to use server-side encryption for object storage. Additionally, authorization or TLS for Thanos server HTTP APIs is not yet specified.
-These features and practices demonstrate Thanos's commitment to security within its scope of enhancing Prometheus's monitoring capabilities. However, it is important to note that the Thanos team does not consider themselves security experts and focuses on avoiding security concerns rather than implementing advanced security features -->
 
 
 ## Project compliance
