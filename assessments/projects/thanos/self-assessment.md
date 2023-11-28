@@ -452,10 +452,28 @@ Tampering with data
   * Querier must check the integrity of the metrics  received from object storage Plane before delivering it back to the user.
   * If the integrity check fails then the metrics must be discarded and logged as a security event.
 
+
 Repudiation
 * Threat: Repudiation of actions perfomed on the Thanos system
 * Mitigations:
   * Implement centralized audit collection and alerting for any suspicious activity or security events.
   * Implement auditing for actions performed by Thanos users and admin.
-  * * Audit logging of components.
+  * Audit logging of components.
+    
+Information Disclosure
+* Threat: Unauthorized access to sensitive information.
+* Mitigation:
+   * Encryption must be used for storing or transmitting data.
+   * Implementation of proper access control mechanisms to restric access to sensitive information.
+
+Denial of Service
+* Threat:
+* Mitigation:
+
+Elevation of Privilege:
+* Threat:
+* Mitigation:
+  
+
+
 
