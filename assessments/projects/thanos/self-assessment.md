@@ -55,7 +55,7 @@ use the table below as an example:
 <!-- that distinguishes your project to quickly orient readers who may be assessing -->
 <!-- multiple projects. -->
 #### Thanos
-Highly available Prometheus setup with long term storage capabilities
+Highly available Prometheus setup with long term storage capabilities.
 
 ### Background
 
@@ -88,6 +88,7 @@ By using Thanos in conjunction with Prometheus, organizations can address the ch
 scope of this assessment, we will be assuming deployment on Kubernetes clusters.
 
 Source:<https://github.com/thanos-io/thanos>
+
 ### Actors
 <!-- These are the individual parts of your system that interact to provide the
 desired functionality.  Actors only need to be separate, if they are isolated
@@ -113,6 +114,8 @@ Two types of deployment strategies are generally used:
 
 3. Deployment via Receive in order to scale out or integrate with other remote write-compatible sources:
    ![Thanos High Level Arch Diagram (Receive)](res/thanos-high-level-arch-diagram-receive.png)
+   
+Source: <https://github.com/thanos-io/thanos/tree/main/docs/components>
 
 ### Actions
 <!-- These are the steps that a project performs in order to provide some service -->
