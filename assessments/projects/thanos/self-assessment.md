@@ -37,7 +37,7 @@ A table at the top for quick reference information, later used for indexing.
 | Software | <https://github.com/thanos-io/thanos>  |
 | Security Provider | No. |
 | Languages | Golang |
-| SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. [Link to SBOM](/assessments/projects/thanos/res/Thanos_SBOM_cyclonedx.bom.json) |
+| SBOM | SBOM generated using FOSSA-cli tool on the latest code base. [Link to SBOM](/assessments/projects/thanos/res/Thanos_SBOM_cyclonedx.bom.json) |
 | | |
 
 ### Security links
@@ -164,11 +164,11 @@ There is no authentication or authorization done by the querier.
 There are two types of deployment models as listed in Actors section:
 
 **Pull mode**  
-In pull mode (Sidecar) the workflow is as follows:  
+In pull mode (Sidecar pulls metrics from prometheus) the workflow is as follows:  
 ![workflow1](res/workflow1.excalidraw.png)
 
 **Push mode**  
-In push mode (Receive) the workflow is as follows:  
+In push mode (Prometheus pushes metrics to Receive) the workflow is as follows:  
 ![workflow2](res/workflow2.excalidraw.png)
 
 The above two deployment models can be used together to combine different environments where both these strategies are required.
@@ -182,35 +182,30 @@ In addition Thanos Ruler could be deployed which would add another source for th
 
 ###### Simplified Step-by-step description of how Thanos works:
 * The user wants metrics.
-* The querier initiates a query to gather the metric data.
-* Metric data is pulled from the Thanos store and Thanos sidecar. The querier performs mandatory operations such filtering, aggregation and compaction.
-    * The Thanos query uses the gRPC protocol to talk to Thanos store.
+* The user initiates a query to gather the metric data.
+* Metric data is pulled from the Thanos store and Thanos sidecar. The querier performs mandatory operations such as filtering, aggregation and compaction.
+    * The Thanos query uses the gRPC protocol to talk to Thanos store and the sidecar.
 * The metrics are delivered to the user.
 
-> Similar actions are done in push mode; except, receive takes the place of the sidecar.
+> Similar actions are done in push mode; except, querier pulls from Receive instead of sidecar.
 
-###### Deployment:
+###### Basic Deployment:
 * Set up a Prometheus server instance.
 * Have sidecar run alongside the Prometheus instance.
 * Give the querier the ability to communicate with sidecar.
 * Deploy Thanos store to fetch metrics stored in long term storage.
 * Set up compactor for compaction and downsampling.
-* Configure node exporter container.
+* Configure node exporter container to expose node metrics.
 * Use Grafana for visualization.
 
-Sources:
+**Sources:**  
 
-[Maintaners.md](https://thanos.io/tip/thanos/maintainers.md)
-
-[Scaling Prometheus](https://blog.purestorage.com/purely-technical/scaling-prometheus-with-thanos-for-long-term-retention/)
-
-[Monitoring with Prometheus and Grafana](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6)
-
-[Prometheus and Thanos](https://medium.com/@sagivsza/prometheus-and-thanos-an-ultimate-alliance-for-scalable-metrics-9a1cb911abf5)
-
-[Components](https://github.com/thanos-io/thanos/tree/main/docs/components)
-
-
+<!-- [Maintaners.md](https://thanos.io/tip/thanos/maintainers.md) -->
+<!-- [Scaling Prometheus](https://blog.purestorage.com/purely-technical/scaling-prometheus-with-thanos-for-long-term-retention/) -->
+<!-- [Monitoring with Prometheus and Grafana](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6) -->
+<!-- [Prometheus and Thanos](https://medium.com/@sagivsza/prometheus-and-thanos-an-ultimate-alliance-for-scalable-metrics-9a1cb911abf5) -->
+[Components](https://github.com/thanos-io/thanos/tree/main/docs/components)  
+[Interactive Tutorials](https://killercoda.com/thanos/)
 
 ### Goals
 <!-- The intended goals of the projects including the security guarantees the project
