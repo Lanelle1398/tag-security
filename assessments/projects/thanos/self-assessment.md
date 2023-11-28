@@ -190,7 +190,7 @@ Thanos seeks graduation and is preparing for a security audit.
 ## Security functions and features (WIP)
 
 Critical:
- <!-- A listing critical security components of the project with a brief description of their importance.  It is recommended these be used for threat modeling. These are considered critical design elements that make the product itself secure and are not configurable.  Projects are encouraged to track these as primary impact items for changes to the project. -->
+A listing of critical security components of the project with a brief description of their importance.  It is recommended these be used for threat modeling. These are considered critical design elements that make the product itself secure and are not configurable.  Projects are encouraged to track these as primary impact items for changes to the project.
  
 * Components communicate securely with TLS. This prevents unauthorized modification of data in transit.
 * High availability and fault tolerance is achieved by distributing Prometheus data across multiple instances and using object storage for long-term storage. Because of redundancy in multiple components, if one part of the system fails, the user can still perform certain actions.
@@ -199,10 +199,8 @@ Critical:
 
 Security Relevant:
 
-<!-- A listing of security relevant components of the project with
-  brief description.  These are considered important to enhance the overall security of
-the project, such as deployment configurations, settings, etc.  These should also be
-included in threat modeling. -->
+A listing of security relevant components of the project withmbrief description.  These are considered important to enhance the overall security of the project, such as deployment configurations, settings, etc.  These should also be
+included in threat modeling.
 
 * Logging and monitoring of Thanos components to detect security breaches.
 * Properly configuring components to ensure a secure deployment.
