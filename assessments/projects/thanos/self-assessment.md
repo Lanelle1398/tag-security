@@ -187,7 +187,7 @@ In addition Thanos Ruler could be deployed which would add another source for th
     * The Thanos query uses the gRPC protocol to talk to Thanos store.
 * The metrics are delivered to the user.
 
-> Similar actions are done in push mode, except receive takes the place of the sidecar.
+> Similar actions are done in push mode; except, receive takes the place of the sidecar.
 
 ###### Deployment:
 * Set up a Prometheus server instance.
@@ -207,6 +207,7 @@ Sources:
 [Monitoring with Prometheus and Grafana](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6)
 
 [Prometheus and Thanos](https://medium.com/@sagivsza/prometheus-and-thanos-an-ultimate-alliance-for-scalable-metrics-9a1cb911abf5)
+
 [Components](https://github.com/thanos-io/thanos/tree/main/docs/components)
 
 
@@ -417,7 +418,7 @@ Initially, Aiven used InfluxDB but it was unable to handle their scale of fleet 
 
 After conducting their research, they saw that their main options were Cortex and Thanos. Cortex has similar problems to M3DB. Thanos was the better fit. It had a vibrant ecosystem, aligned with software foundations, and was Apache 2.0 licensed. Aiven tested Thanos by using proof of concept. After conducting the test, Aiven found that Thanos was feasible and its cost savings were pretty significant. Additionally, Thanos performed better than M3DB and Thanos' queries were faster.
 
-Aiven is excited to offer a managed Thanos as a service as a product . They plan to continue contibuting to Thanos, and hope to have dedicated members of  their open source program office (OSPO) in the future working in the Thanos community.
+Aiven is excited to offer a managed Thanos as a service as a product . They plan to continue contibuting to Thanos, and hope to have dedicated members of  their Open Source Program Office (OSPO) in the future working in the Thanos community.
 
 To read more, see source [2023-06-08-thanos-at-aiven.md](https://github.com/thanos-io/thanos/blob/main/docs/blog/2023-06-08-thanos-at-aiven.md)
 
