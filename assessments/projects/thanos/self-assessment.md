@@ -192,6 +192,9 @@ description of their importance.  It is recommended these be used for threat mod
 These are considered critical design elements that make the product itself secure and
 are not configurable.  Projects are encouraged to track these as primary impact items
 for changes to the project.
+
+* High availability and fault tolerance is achieved by distributing Prometheus data across multiple instances and using object storage for long-term storage. Because of redundancy in multiple components, if one part of the system fails, the user can still perform certain actions.
+
 * Security Relevant.  A listing of security relevant components of the project with
   brief description.  These are considered important to enhance the overall security of
 the project, such as deployment configurations, settings, etc.  These should also be
