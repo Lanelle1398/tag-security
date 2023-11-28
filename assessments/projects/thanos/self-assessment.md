@@ -129,6 +129,7 @@ Source: <https://github.com/thanos-io/thanos/tree/main/docs/components>
 <!-- access, and then returns a token to the client.  The client then transmits that -->
 <!-- token to the file server, which, after confirming its validity, returns the file. -->
 
+###### Actors:
 **Metric Sources**  
 Primarily Prometheus is used as the metrics source with Thanos.
 The targets whose metrics have to be collected are configured in the Prometheus config file.
@@ -144,8 +145,8 @@ It queries Prometheus to fetch metrics using remote-read APIs of Prometheus.
 It also requires access to the admin API of Prometheus to fetch the external labels.  
 If shipper feature of sidecar is used (for longer retention of Prometheus data in relatively cheaper object storage):  
 * Sidecar has access to the Prometheus TSDB (Time series Databse).
-* It ships the blocks to the object storage (It has access to the credentials for the object storage)
-Optinally it can also watch for changes to the Prometheus configuration file and call the Prometheus reload API to reload its configuration in case of any changes.
+* It ships the blocks to the object storage (It has access to the credentials for the object storage).
+Optionally it can also watch for changes to the Prometheus configuration file and call the Prometheus reload API to reload its configuration in case of any changes.
 
 **Receive**  
 The Receive component exposes Prometheus compatible remote-write API that can be used by Prometheus to send its data.  
@@ -178,6 +179,8 @@ The compactor downsamples and aggregates data stored in object storage for faste
 Compactor is the only component which should have delete rights to the object storage.
 
 In addition Thanos Ruler could be deployed which would add another source for the querier to fetch from using the storeAPI exposed by Ruler.
+
+###### Step-by-step description of hoe it works:
 
 Source: <https://thanos.io/tip/thanos/maintainers.md>
 
