@@ -203,7 +203,8 @@ the project, such as deployment configurations, settings, etc.  These should als
 included in threat modeling. -->
 
 * Logging and monitoring of Thanos components to detect security breaches.
-* Properly configuring components promotes a more secure deployment.
+* Properly configuring components to ensure a secure deployment.
+* Securing data by setting up robust access control and encryption mechanism on the storage backend.
 
 Major source ( https://thanos.io/tip/thanos/security.md/ & https://www.bestpractices.dev/en/projects/3048#security)
 
