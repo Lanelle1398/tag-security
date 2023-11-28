@@ -464,11 +464,14 @@ Information Disclosure
 * Threat: Unauthorized access to sensitive information.
 * Mitigation:
    * Encryption must be used for storing or transmitting data.
-   * Implementation of proper access control mechanisms to restric access to sensitive information.
+   * Implementation of proper access control mechanisms to restrict access to sensitive information.
 
 Denial of Service
-* Threat:
+* Threat: Disrupt the availability of Thanos services.
 * Mitigation:
+   * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources.
+   * Employ load balancing and redundancy mechanisms to distribute traffic effectively.
+   * Monitor systems for a potential Denial of Service attack.
 
 Elevation of Privilege:
 * Threat:
