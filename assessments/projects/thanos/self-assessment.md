@@ -601,13 +601,13 @@ What we are referrring to instead is bad actors who deliberately overwhelm the s
 * Threat: Disrupt the availability of Thanos services.
 * Mitigation:
    * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources. For example, consider using a token bucket algorithm to limit the number of requests a user can make per second.
-   * Employ load balancing and redundancy mechanisms to distribute traffic effectively. If we have no load balancing, for example, an attacker may be able to access a component directly through the component's endpoints or IP addresses and send a high volume of requests to a specific component. Load balancers or technologies like Kubernetes Ingress may be used to distiribute traffic more evenly among Thanos components. 
+   * Employ load balancing and redundancy mechanisms to distribute traffic effectively. If we have no load balancing, for example, an attacker may be able to access a component directly through the component's endpoint or IP address and send a high volume of requests to a specific component. Load balancers or technologies like Kubernetes Ingress may be used to distribute traffic more evenly among Thanos components. 
    * Monitor systems for a potential Denial of Service attack.
-     * Track metrics such as system performance, resource consumption and network usage. Additional, use alerting system to notify administrators of unusual spikes.
+     * Track metrics such as system performance, resource consumption and network usage. Additionally, use alerting system to notify administrators of unusual spikes.
 
 Elevation of Privilege:
 * Threat: An attacker can gain access to private data or perform actions only meant for certain trusted users.
-  * For example, if Thanos is not configured to have proper access control mechanisms, a user might be able to change authentication or authorization settings to elevate their access. By doing so, a user could possibly change their role or grant themselves extra permissions to perform more sensitive actions.
+  * For example, if Thanos is not configured to have proper access control mechanisms, a user might be able to change authentication or authorization settings to elevate their access. By doing so, a user could possibly change their role or grant themselves extra permissions to perform sensitive actions.
 * Mitigation:
    <!--* Secure communications via TLS encryption -->
    * Prometheus operates with minimum level of access rights necessary to function (principle of least privilege). Thanos can also be configured (via config flags) to minimize its access so that damage-potential is limited.
