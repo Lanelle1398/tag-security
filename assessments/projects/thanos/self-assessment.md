@@ -88,9 +88,6 @@ It does so by providing:
 
 By using Thanos in conjunction with Prometheus, organizations can address the challenges of scaling Prometheus for larger deployments and retaining metrics data over longer periods. It's designed to provide a scalable and globally distributed solution for Prometheus monitoring.
 
-> It is not necessary to deploy Thanos on a Kuberenetes cluster. For narrowing and focusing the
-scope of this assessment, we will be assuming deployment on Kubernetes clusters.
-
 Source:<https://github.com/thanos-io/thanos>
 
 ### Actors
