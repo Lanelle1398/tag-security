@@ -91,14 +91,12 @@ By using Thanos in conjunction with Prometheus, organizations can address the ch
 Source:<https://github.com/thanos-io/thanos>
 
 ### Actors
-<!-- These are the individual parts of your system that interact to provide the
+Description of actors: These are the individual parts of your system that interact to provide the
 desired functionality.  Actors only need to be separate, if they are isolated
 in some way.  For example, if a service has a database and a front-end API, but
 if a vulnerability in either one would compromise the other, then the distinction
-between the database and front-end is not relevant.
+between the database and front-end is not relevant. The means by which actors are isolated should also be described, as this is often what prevents an attacker from moving laterally after a compromise.
 
-The means by which actors are isolated should also be described, as this is often
-what prevents an attacker from moving laterally after a compromise.-->
 * Queriers: Stateless and horizontally scalable instances responsible for executing PromQL queries.
 * Store Gateway: Act as gateways to block data stored in object storage.
 * Rule/Ruler: Evaluate recording and alerting rules against data in Thanos.
@@ -465,7 +463,7 @@ Key differences:
 *  Query language- Thanos uses PromQL just like Prometheus. VictoriaMetrics uses metricsQl which is baskwards compatible with PromQL.
 * High Avaliability and Reliability: Thanos relies on  object storage for long term data and has replication features in other components; this provides high availability. VictoriaMetrics has a cluster version and stores its data on local storage which provides high availability and redundancy.
 * Downsampling & retention: Both Thanos & VM has downsampling and customizable retention policies, the specifics of each may vary.
-* Integration: Thanos integrates closely with Prometheus and can integrate with Grafana. VictoriaMetrics is compatible with Prometheus, can be used as a replacement for TSDB and can integrate with Grafana, Thanos or Cortex.
+* Integration: Thanos integrates closely with Prometheus and can integrate with Grafana.VictoriaMetrics implements MetricsQL - query language inspired by PromQL. MetricsQL is backwards-compatible with PromQL, so Grafana dashboards backed by Prometheus data source should work the same after switching from Prometheus to VictoriaMetrics.
 * Performance: Both Thanos and VictoriaMetrics handle large workloads seamlessly.  Some prefer Thanos since it has a modular architecture that can be customized for specific setups. Some prefer VictoriaMetrics and believe that it's faster, more resource-effecient and uses CPU and disk space better.
 
 Sources:  
