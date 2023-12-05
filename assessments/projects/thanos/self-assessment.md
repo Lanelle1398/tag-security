@@ -601,7 +601,7 @@ What we are referrring to instead is bad actors who deliberately overwhelm the s
 * Threat: Disrupt the availability of Thanos services.
 * Mitigation:
    * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources. For example, consider using a token bucket algorithm to limit the number of requests a user can make per second.
-   * Employ load balancing and redundancy mechanisms to distribute traffic effectively. If we have no load balancing, for example, an attacker may be able to access a component directly through the components' endpoints or IP addresses and send a high volume of requests to a specific component. Load balancer or technologies like Kubernetes Ingress may be used to distiribute traffic among Thanos components. 
+   * Employ load balancing and redundancy mechanisms to distribute traffic effectively. If we have no load balancing, for example, an attacker may be able to access a component directly through the component's endpoints or IP addresses and send a high volume of requests to a specific component. Load balancers or technologies like Kubernetes Ingress may be used to distiribute traffic more evenly among Thanos components. 
    * Monitor systems for a potential Denial of Service attack.
      * Track metrics such as system performance, resource consumption and network usage. Additional, use alerting system to notify administrators of unusual spikes.
 
