@@ -311,9 +311,9 @@ included in threat modeling.
 * Logging and monitoring of Thanos components to detect security breaches:
    * Make a log of what components were used, when, how by what user etc.
    * The log should keep track of authentication and authorization events within components.
-      * Example: An unauthorized user tries to access Thanos Query APIs. A log entry is made for this request. The log entry might contain information such as the time the request was made, the user's IP address,  information about the requested API endpoint, the authentication status (failed/successful) etc. By regularly analyzing these logs, signs of a security breach could be detected. For example, multiple unsuccessful authentication attempts, unusual patterns in the timing or frequency of access attempts,strange or unathorized API endpoint request may indicate that a breach had occured. Security personnel would then investigate.    
+      * Example: An unauthorized user tries to access Thanos Query APIs. A log entry is made for this request. The log entry might contain information such as the time the request was made, the user's IP address,  information about the requested API endpoint, the authentication status (failed/successful) etc. By regularly analyzing these logs, signs of a security breach could be detected. For example, multiple unsuccessful authentication attempts, unusual patterns in the timing or frequency of access attempts, weird or unathorized API endpoint request may indicate that a breach had occured. Security personnel would then investigate.    
 * Properly configuring components to ensure a secure deployment.
-   * For example, your Thanos deployment might use access control policies to restrict what operations users with varying roles or permissions can perform.
+   * For example, your Thanos deployment might use role-based access control policies to restrict what operations users with varying roles or permissions can perform.For instance, an administrator might have complete control of the query api, an operator might have the minimum necessary access to complete their duties, a viewer might only have read access.
 * Securing data by setting up robust access control and encryption mechanism on the storage backend.
 
 Source: <https://thanos.io/tip/thanos/maintainers.md>
@@ -565,28 +565,31 @@ Spoofing Identity
   * Authentication mechanisms for each component.
   * Frequently monitor authentication logs.
   * Access control policies to prevent unauthorized access to the system.
+    
+  (See Security Functions and Features for an example.)
 
 
 Tampering with data
 * Threat: Metrics can be tampered
 * Mitigations:
    * TLS is used by default for communication with all object storages, providing an additional layer of security for data in transit.
-  * Querier must check the integrity of the metrics  received from object storage before delivering it back to the user.
+  * Querier must check the integrity of the metrics received from object storage before delivering it back to the user.
   * If the integrity check fails then the metrics must be discarded and logged as a security event.
+      * For example, when the Querier component receives metrics from storage , it can use a checksum or cryptographic method to generate a hash value. If the generated hash value does not match the expected hash value, or some other integrity verification values, the tampered metrics should be discarded.
 
 
 Repudiation
 * Threat: Repudiation of actions perfomed on the Thanos system
 * Mitigations:
-  * Implement centralized audit collection and alerting for any suspicious activity or security events.
-  * Implement auditing for actions performed by Thanos users and admin. Also, implement audit logging of components.
+  * Implement centralized audit collection and alerting for any suspicious activity or security events. For example, a user deleting a metric should raise a security alert. This should be recorded in the audit log and flagged as suspsicious.
+  * Implement auditing for actions performed by Thanos users and admin. Also, implement audit logging of components. For example, every time a user performs an action (such as querying or modifying metrics, for instance), their actions should be added to the audit log. The audit log can contain information such as timestamps, their identity, what actions they performed etc. This can help keep users accountable and prevent repudiation of their actions.
 
 Information Disclosure
 * Threat: Unauthorized access to sensitive information.
 * Mitigation:
-   * Server-side encryption must be used for storing data, and TLS encryption for data transmission.
-   * Implementation of proper access control mechanisms to restrict access to sensitive information.
-   * Access of Thanos can be configured/limited to minimize potential attack surface.
+   * Server-side encryption must be used for storing data, and TLS encryption for data transmission. For example, the data can be stored in an encrypted database.
+   * Implementation of proper access control mechanisms to restrict access to sensitive information. (See Security Functions and Features).
+   * Access of Thanos can be configured/limited to minimize potential attack surface. For example, access to Thanos can be resricted to specific networks or IP addresses. Addtionally, unused features should be disables.
 
 Denial of Service
 
