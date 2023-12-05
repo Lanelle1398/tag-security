@@ -311,8 +311,9 @@ included in threat modeling.
 * Logging and monitoring of Thanos components to detect security breaches:
    * Make a log of what components were used, when, how by what user etc.
    * The log should keep track of authentication and authorization events within components.
-      * Example: An unauthorized user tries to access Thanos Query APIs. A log entry is made for this request. The log entry might contain information such as the time the request was made, the user's IP address,  information about the requested API endpoint, the authentication status (failed/successful) etc. By regularly analyzing these logs, signs of a security breach could be detected. For example, multiple unsuccessful authentication attempts, unusual patterns in the timing or frequency of access attempts,strange or unathorized APi endpoint request may indicate that a breach had occured.Security personnel would then investigate.    
+      * Example: An unauthorized user tries to access Thanos Query APIs. A log entry is made for this request. The log entry might contain information such as the time the request was made, the user's IP address,  information about the requested API endpoint, the authentication status (failed/successful) etc. By regularly analyzing these logs, signs of a security breach could be detected. For example, multiple unsuccessful authentication attempts, unusual patterns in the timing or frequency of access attempts,strange or unathorized API endpoint request may indicate that a breach had occured. Security personnel would then investigate.    
 * Properly configuring components to ensure a secure deployment.
+   * For example, your Thanos deployment might use access control policies to restrict what operations users with varying roles or permissions can perform.
 * Securing data by setting up robust access control and encryption mechanism on the storage backend.
 
 Source: <https://thanos.io/tip/thanos/maintainers.md>
