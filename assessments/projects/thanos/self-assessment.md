@@ -587,27 +587,31 @@ Repudiation
 Information Disclosure
 * Threat: Unauthorized access to sensitive information.
 * Mitigation:
-   * Server-side encryption must be used for storing data, and TLS encryption for data transmission. For example, the data can be stored in an encrypted database.
-   * Implementation of proper access control mechanisms to restrict access to sensitive information. (See Security Functions and Features).
-   * Access of Thanos can be configured/limited to minimize potential attack surface. For example, access to Thanos can be resricted to specific networks or IP addresses. Addtionally, unused features should be disables.
+   * Server-side encryption must be used for storing data, and TLS encryption for data transmission. For example, the metric data can be stored in an encrypted database.
+   * Implementation of proper access control mechanisms to restrict access to sensitive information (See Security Functions and Features).
+   * Access of Thanos can be configured/limited to minimize potential attack surface. For example, access to Thanos can be resricted to specific networks or IP addresses. Additionally, unused features should be disabled.
 
 Denial of Service
 
 A malicious attacker can flood the network infrastructure, exhaust resources or conduct a distributed denial of service attack.
+When we say conduct a denial of service attack, we do not mean innocent problems like misconfigurations, human errors, newtworking problems, capacity errors,and so forth (however, there should be little to no room for these kind of errors that an attacker can take advantage of). We also do not mean legitimate actions performed by Thanos, such as required maintenance etc.
+
+What we are referrring to instead is bad actors who deliberately overwhelm the system with excessive requests.
 
 * Threat: Disrupt the availability of Thanos services.
 * Mitigation:
-   * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources.
-   * Employ load balancing and redundancy mechanisms to distribute traffic effectively.
+   * Use rate limiting and throttling mechanisms to prevent excessive consumption of resources. For example, consider using a token bucket algorithm to limit the number of requests a user can make per second.
+   * Employ load balancing and redundancy mechanisms to distribute traffic effectively. If we have no load balancing, for example, an attacker may be able to access a component directly through the components' endpoints or IP addresses and send a high volume of requests to a specific component. Load balancer or technologies like Kubernetes Ingress may be used to distiribute traffic among Thanos components. 
    * Monitor systems for a potential Denial of Service attack.
+     * Track metrics such as system performance, resource consumption and network usage. Additional, use alerting system to notify administrators of unusual spikes.
 
 Elevation of Privilege:
 * Threat: An attacker can gain access to private data or perform actions only meant for certain trusted users.
+  * For example, if Thanos is not configured to have proper access control mechanisms, a user might be able to change authentication or authorization settings to elevate their access. By doing so, a user could possibly change their role or grant themselves extra permissions to perform more sensitive actions.
 * Mitigation:
    <!--* Secure communications via TLS encryption -->
-   * Prometheus operates with minimum level of access rights necessary to function (principle of least privilege).
+   * Prometheus operates with minimum level of access rights necessary to function (principle of least privilege). Thanos can also be configured (via config flags) to minimize its access so that damage-potential is limited.
    * Prometheus is a monitoring tool, so it can be used to raise alerts upon suspicious activity that may coincide with attempts at privilege escalation within Thanos as well.
-   * Thanos can be configured (via config flags) to minimize its access so that damage-potential is limited.
    * Thanos piggy-backs off of Prometheus's authentication and authorization mechanisms.
    * User permissions must be frequently reviewed.
 
