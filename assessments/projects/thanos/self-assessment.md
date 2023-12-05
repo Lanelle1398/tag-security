@@ -91,11 +91,11 @@ By using Thanos in conjunction with Prometheus, organizations can address the ch
 Source:<https://github.com/thanos-io/thanos>
 
 ### Actors
-Description of actors: These are the individual parts of your system that interact to provide the
-desired functionality.  Actors only need to be separate, if they are isolated
+Description of actors: These are the individual parts of our system that interact to provide the desired functionality.  
+<!--Actors are only separated if they are isolated
 in some way.  For example, if a service has a database and a front-end API, but
 if a vulnerability in either one would compromise the other, then the distinction
-between the database and front-end is not relevant. The means by which actors are isolated should also be described, as this is often what prevents an attacker from moving laterally after a compromise.
+between the database and front-end is not relevant. The means by which actors are isolated should also be described, as this is often what prevents an attacker from moving laterally after a compromise. -->
 
 * Queriers: Stateless and horizontally scalable instances responsible for executing PromQL queries.
 * Store Gateway: Act as gateways to block data stored in object storage.
@@ -117,6 +117,7 @@ Two types of deployment strategies are generally used:
 Source: <https://github.com/thanos-io/thanos/tree/main/docs/components>
 
 ### Actions
+Description of actions: These are the steps that a project performs in order to provide some service 
 <!-- These are the steps that a project performs in order to provide some service -->
 <!-- or functionality.  These steps are performed by different actors in the system. -->
 <!-- Note, that an action need not be overly descriptive at the function call level. -->
@@ -207,6 +208,7 @@ In addition Thanos Ruler could be deployed which would add another source for th
 [Thanos-Monitoring ](https://thesaadahmed.medium.com/thanos-monitoring-with-prometheus-and-grafana-843ed231c8a6)
 
 ### Goals
+Description of Goals: This are the intended goals of the project, including the security guarantees the project is meant to provide .
 <!-- The intended goals of the projects including the security guarantees the project
  is meant to provide (e.g., Flibble only allows parties with an authorization
 key to change data it stores).-->
@@ -254,6 +256,8 @@ Sources:
 
 
 ### Non-goals
+Description of Non-goals: Non-goals that a reasonable reader of the project’s literature could believe may
+be in scope.
 <!--*Non-goals that a reasonable reader of the project’s literature could believe may
 be in scope (e.g., Flibble does not intend to stop a party with a key from storing
 an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
@@ -301,10 +305,13 @@ A listing of critical security components of the project with a brief descriptio
 * Thanos uses Prometheus Role Based Action control system. This means that access to certain functionalities can be prevented based on a user's role and permission.
 
 **Security Relevant:**
-A listing of security relevant components of the project withmbrief description.  These are considered important to enhance the overall security of the project, such as deployment configurations, settings, etc.  These should also be
+A listing of security relevant components of the project wit a brief description.  These are considered important to enhance the overall security of the project, such as deployment configurations, settings, etc.  These should also be
 included in threat modeling.
 
-* Logging and monitoring of Thanos components to detect security breaches.
+* Logging and monitoring of Thanos components to detect security breaches:
+   * Make a log of what components were used, when, how by what user etc.
+   * The log should keep track of authentication and authorization events within components.
+      * Example: An unathorized user tries to access Thanos Query APIs. A log entry is made for this request. The log entry might contain information such as the time the request was made, the user's IP address,  information about the requested API endpoint, the authentication status (failed/successful) etc. By regularly analyzing these logs, signs of a security breach could be detected. For example, multiple unsuccessful authentication attempts, unusual patterns in the timing or frequency of access attempts,strange or unathorized APi endpoint request may indicate that a breach had occured.Security personnel would then investigate.    
 * Properly configuring components to ensure a secure deployment.
 * Securing data by setting up robust access control and encryption mechanism on the storage backend.
 
